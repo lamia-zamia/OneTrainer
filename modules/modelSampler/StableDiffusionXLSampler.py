@@ -51,6 +51,7 @@ class StableDiffusionXLSampler(BaseModelSampler):
             cfg_rescale: float = 0.7,
             text_encoder_1_layer_skip: int = 0,
             text_encoder_2_layer_skip: int = 0,
+            sdxl_max_caption_tokens: int = 75,
             force_last_timestep: bool = False,
             on_update_progress: Callable[[int, int], None] = lambda _, __: None,
     ) -> ModelSamplerOutput:
@@ -75,6 +76,7 @@ class StableDiffusionXLSampler(BaseModelSampler):
                 train_device=self.train_device,
                 text_encoder_1_layer_skip=text_encoder_1_layer_skip,
                 text_encoder_2_layer_skip=text_encoder_2_layer_skip,
+                max_caption_tokens=sdxl_max_caption_tokens,
             ))
 
             negative_prompt_embedding, negative_pooled_text_encoder_2_output = self.model.combine_text_encoder_output(*self.model.encode_text(
@@ -82,6 +84,7 @@ class StableDiffusionXLSampler(BaseModelSampler):
                 train_device=self.train_device,
                 text_encoder_1_layer_skip=text_encoder_1_layer_skip,
                 text_encoder_2_layer_skip=text_encoder_2_layer_skip,
+                max_caption_tokens=sdxl_max_caption_tokens,
             ))
 
             combined_prompt_embedding = torch.cat([negative_prompt_embedding, prompt_embedding]) \
@@ -220,6 +223,7 @@ class StableDiffusionXLSampler(BaseModelSampler):
             mask_image_path: str = "",
             text_encoder_1_layer_skip: int = 0,
             text_encoder_2_layer_skip: int = 0,
+            sdxl_max_caption_tokens: int = 75,
             force_last_timestep: bool = False,
             on_update_progress: Callable[[int, int], None] = lambda _, __: None,
     ) -> ModelSamplerOutput:
@@ -302,6 +306,7 @@ class StableDiffusionXLSampler(BaseModelSampler):
                     train_device=self.train_device,
                     text_encoder_1_layer_skip=text_encoder_1_layer_skip,
                     text_encoder_2_layer_skip=text_encoder_2_layer_skip,
+                    max_caption_tokens=sdxl_max_caption_tokens,
                 ))
 
             negative_prompt_embedding, negative_pooled_text_encoder_2_output = self.model.combine_text_encoder_output(
@@ -310,6 +315,7 @@ class StableDiffusionXLSampler(BaseModelSampler):
                     train_device=self.train_device,
                     text_encoder_1_layer_skip=text_encoder_1_layer_skip,
                     text_encoder_2_layer_skip=text_encoder_2_layer_skip,
+                    max_caption_tokens=sdxl_max_caption_tokens,
                 ))
 
             combined_prompt_embedding = torch.cat([negative_prompt_embedding, prompt_embedding]) \
@@ -454,6 +460,7 @@ class StableDiffusionXLSampler(BaseModelSampler):
                 mask_image_path=sample_config.mask_image_path,
                 text_encoder_1_layer_skip=sample_config.text_encoder_1_layer_skip,
                 text_encoder_2_layer_skip=sample_config.text_encoder_2_layer_skip,
+                sdxl_max_caption_tokens=getattr(sample_config, "sdxl_max_caption_tokens", 75),
                 force_last_timestep=sample_config.force_last_timestep,
                 on_update_progress=on_update_progress,
             )
@@ -471,6 +478,7 @@ class StableDiffusionXLSampler(BaseModelSampler):
                 cfg_rescale=0.7 if sample_config.force_last_timestep else 0.0,
                 text_encoder_1_layer_skip=sample_config.text_encoder_1_layer_skip,
                 text_encoder_2_layer_skip=sample_config.text_encoder_2_layer_skip,
+                sdxl_max_caption_tokens=getattr(sample_config, "sdxl_max_caption_tokens", 75),
                 force_last_timestep=sample_config.force_last_timestep,
                 on_update_progress=on_update_progress,
             )

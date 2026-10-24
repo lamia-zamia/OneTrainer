@@ -5,6 +5,7 @@
     "layer_filter_preset": "attn-mlp",
     "learning_rate": 0.0003,
     "model_type": "STABLE_DIFFUSION_XL_10_BASE_INPAINTING",
+    "sdxl_max_caption_tokens": 75,
     "output_model_destination": "models/lora.safetensors",
     "output_model_format": "KOHYA_LORA",
     "resolution": "1024",

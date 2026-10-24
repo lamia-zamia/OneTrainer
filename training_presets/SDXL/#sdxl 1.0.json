@@ -1,6 +1,7 @@
 {
     "base_model_name": "stabilityai/stable-diffusion-xl-base-1.0",
     "model_type": "STABLE_DIFFUSION_XL_10_BASE",
+    "sdxl_max_caption_tokens": 75,
     "output_model_destination": "models/model.safetensors",
     "output_model_format": "ORIGINAL_SINGLE_FILE",
     "resolution": "1024",

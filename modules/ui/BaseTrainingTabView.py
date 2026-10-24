@@ -101,6 +101,12 @@ class BaseTrainingTabView(ABC):
         self.__create_text_encoder_n_frame(column_0, 2, ui_state, i=2, supports_layer_offloading=False)
         self.__create_embedding_frame(column_0, 3, ui_state)
 
+        caption_frame = self.components.section_frame(column_2, 0)
+        self.components.label(caption_frame, 0, 0, "Caption Tokens",
+                              tooltip="Maximum SDXL caption content tokens. Each chunk adds its own BOS and EOS tokens.")
+        self.components.options_kv(caption_frame, 0, 1, [(str(token_count), token_count) for token_count in (75, 150, 225)],
+                                   ui_state, "sdxl_max_caption_tokens")
+
         self.__create_base2_frame(column_1, 0, controller, ui_state, supports_circular_padding=True)
         self.__create_unet_frame(column_1, 1, ui_state)
         self.__create_noise_frame(column_1, 2, ui_state, supports_generalized_offset_noise=True)

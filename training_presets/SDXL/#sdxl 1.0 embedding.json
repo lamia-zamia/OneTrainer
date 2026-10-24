@@ -5,6 +5,7 @@
     "learning_rate": 0.0003,
     "learning_rate_warmup_steps": 20,
     "model_type": "STABLE_DIFFUSION_XL_10_BASE",
+    "sdxl_max_caption_tokens": 75,
     "output_model_destination": "models/embedding.safetensors",
     "output_model_format": "SAFETENSORS",
     "resolution": "1024",

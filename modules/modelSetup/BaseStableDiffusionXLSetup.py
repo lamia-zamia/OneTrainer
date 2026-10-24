@@ -207,6 +207,7 @@ class BaseStableDiffusionXLSetup(
                     'text_encoder_2_pooled_state'] if not config.train_text_encoder_2_or_embedding() else None,
                 text_encoder_1_dropout_probability=config.text_encoder.dropout_probability if not deterministic else None,
                 text_encoder_2_dropout_probability=config.text_encoder_2.dropout_probability if not deterministic else None,
+                max_caption_tokens=config.sdxl_max_caption_tokens,
             ))
 
             latent_image = batch['latent_image']
