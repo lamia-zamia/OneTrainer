@@ -1,0 +1,870 @@
+{
+  "environment": {
+    "python": "3.12.2 (tags/v3.12.2:6abddd9, Feb  6 2024, 21:26:36) [MSC v.1937 64 bit (AMD64)]",
+    "torch": "2.12.0+cu130",
+    "cuda_runtime": "13.0",
+    "transformers": "5.5.4",
+    "diffusers": "0.39.0.dev0",
+    "tokenizers": "0.22.2",
+    "safetensors": "0.8.0",
+    "gpu": {
+      "nvidia_smi": "NVIDIA GeForce RTX 4060 Laptop GPU, 8188, 12, 7945, 617.42",
+      "gpus": [
+        {
+          "name": "NVIDIA GeForce RTX 4060 Laptop GPU",
+          "memory_total_mib": 8188,
+          "memory_used_mib": 12,
+          "memory_free_mib": 7945,
+          "driver_version": "617.42"
+        }
+      ],
+      "shared_memory": "Not reported separately by the available nvidia-smi WDDM query"
+    },
+    "determinism": {
+      "seed": 20261024,
+      "cudnn_deterministic": true,
+      "cudnn_benchmark": false,
+      "tf32": false,
+      "attention": "OneTrainer native SDP; deterministic sampling and gradient controls use PyTorch SDPA math"
+    }
+  },
+  "checkpoint": {
+    "path": "D:\\ComfyUI\\ComfyUI\\ComfyUI\\models\\checkpoints\\illustriousXL_v01.safetensors",
+    "size_bytes": 6938040760,
+    "sha256": "3e15ba00387db678ab4a099f75771c4f5ac67fda9e7100a01d263eaf30145aa9"
+  },
+  "source": {
+    "onetrainer_commit": "1906424bc4b064f07c94e2f64d3d3d28ba100edd",
+    "target_lora_layer": "down_blocks.1.attentions.0.transformer_blocks.0.attn2.to_k",
+    "lora_rank": 4,
+    "lora_alpha": 4.0,
+    "optimizer": "OneTrainer create.create_optimizer -> torch AdamW",
+    "optimizer_lr": 0.0003,
+    "weight_decay": 0.0,
+    "training_precision": "FP16 UNet autocast, FP32 LoRA weights, frozen FP16 CLIP encoders",
+    "batch_size": 1,
+    "caption_dropout": 0.0,
+    "image_generation": {
+      "sampler": "OneTrainer StableDiffusionXLSampler",
+      "scheduler": "Euler",
+      "steps": 8,
+      "cfg": 7.0,
+      "seeds": [
+        42,
+        123
+      ],
+      "initial_resolution": 512
+    },
+    "controlled_training": {
+      "resolution": 256,
+      "updates_per_treatment": 8,
+      "dataset_size": 1,
+      "sample_exposures_per_treatment": 8
+    },
+    "gradient_control_attention": "PyTorch SDPA math backend",
+    "deterministic_algorithms_for_gradient_controls": true
+  },
+  "captions": {
+    "short40": {
+      "text": "1girl, solo, portrait, looking_at_viewer, smile, blush, long_hair, brown_hair, blue_eyes, eyelashes, hair_ribbon, side_ponytail, braid",
+      "token_counts": [
+        40,
+        40
+      ]
+    },
+    "third_a": {
+      "text": "1girl, solo, portrait, looking_at_viewer, smile, blush, long_hair, brown_hair, blue_eyes, eyelashes, hair_ribbon, side_ponytail, braid, loose_hair, windblown_hair, school_uniform, white_shirt, red_necktie, pleated_skirt, black_socks, loafers, backpack, hand_on_hip, peace_sign, open_mouth, teeth, small_mouth, earrings, hair_ornament, star_hair_ornament, sunlight, blue_sky, clouds, city_street, school, window, curtain, wooden_desk, book, notebook, pen, flower, potted_plant, green_leaves, tea_cup, red_hair, fox_ears, black_kimono, red_sash, katana, sword, shrine_gate, stone_lantern, maple_leaves, autumn_shrine, sunset_glow, embers, wind_motions, dramatic_pose, confident_smile, golden_eyes, ornate_sheath, red_tassel",
+      "token_counts": [
+        219,
+        219
+      ]
+    },
+    "third_b": {
+      "text": "1girl, solo, portrait, looking_at_viewer, smile, blush, long_hair, brown_hair, blue_eyes, eyelashes, hair_ribbon, side_ponytail, braid, loose_hair, windblown_hair, school_uniform, white_shirt, red_necktie, pleated_skirt, black_socks, loafers, backpack, hand_on_hip, peace_sign, open_mouth, teeth, small_mouth, earrings, hair_ornament, star_hair_ornament, sunlight, blue_sky, clouds, city_street, school, window, curtain, wooden_desk, book, notebook, pen, flower, potted_plant, green_leaves, tea_cup, silver_hair, cat_ears, maid_uniform, white_apron, teacup, tea_room, moonlight, blue_curtains, porcelain_vase, blue_roses, quiet_expression, relaxed_pose, violet_eyes, lace_cuffs, ribbon_bow, silver_bell, soft_candlelight",
+      "token_counts": [
+        215,
+        215
+      ]
+    },
+    "chunk2_a": {
+      "text": "1girl, solo, portrait, looking_at_viewer, smile, blush, long_hair, brown_hair, blue_eyes, eyelashes, hair_ribbon, side_ponytail, braid, loose_hair, windblown_hair, school_uniform, white_shirt, red_necktie, pleated_skirt, black_socks, peace_sign, red_hair, fox_ears, black_kimono, red_sash, katana, sword, shrine_gate, stone_lantern, maple_leaves, autumn_shrine, sunset_glow, embers, wind_motions, dramatic_pose, confident_smile, golden_eyes, ornate_sheath, red_tassel, 1girl, loafers, cherry_blossoms, brick_wall, crosswalk, street_lamp, park_bench, wooden_fence, garden, stone_path, paper_lantern, string_lights, night_sky, crescent_moon, stars, city_lights, mist, reflection, 1girl, solo, portrait, looking_at_viewer, smile, blush",
+      "token_counts": [
+        222,
+        222
+      ]
+    },
+    "chunk2_b": {
+      "text": "1girl, solo, portrait, looking_at_viewer, smile, blush, long_hair, brown_hair, blue_eyes, eyelashes, hair_ribbon, side_ponytail, braid, loose_hair, windblown_hair, school_uniform, white_shirt, red_necktie, pleated_skirt, black_socks, peace_sign, silver_hair, cat_ears, maid_uniform, white_apron, teacup, tea_room, moonlight, blue_curtains, porcelain_vase, blue_roses, quiet_expression, relaxed_pose, violet_eyes, lace_cuffs, ribbon_bow, silver_bell, soft_candlelight, mist, rainbow, neon_sign, stars, cherry_blossoms, brick_wall, crosswalk, street_lamp, park_bench, wooden_fence, garden, stone_path, paper_lantern, string_lights, night_sky, crescent_moon, stars, city_lights, mist, reflection, 1girl, solo, portrait, looking_at_viewer, smile, blush",
+      "token_counts": [
+        222,
+        222
+      ]
+    }
+  },
+  "phases": {
+    "image_generation": {
+      "status": "completed",
+      "resolution": 512,
+      "seconds_for_all_images": 87.90150939999967,
+      "peak_cuda_memory": {
+        "allocated_bytes": 5510805504,
+        "reserved_bytes": 5702156288
+      },
+      "oom_retry": null,
+      "parameters": {
+        "sampler": "Euler",
+        "steps": 8,
+        "cfg": 7.0,
+        "seeds": [
+          42,
+          123
+        ]
+      },
+      "images": {
+        "short75": {
+          "42": {
+            "path": "D:\\OneTrainer\\experiments\\sdxl-long-caption\\images\\short75_seed42_512.png",
+            "size": [
+              512,
+              512
+            ]
+          },
+          "123": {
+            "path": "D:\\OneTrainer\\experiments\\sdxl-long-caption\\images\\short75_seed123_512.png",
+            "size": [
+              512,
+              512
+            ]
+          }
+        },
+        "short225": {
+          "42": {
+            "path": "D:\\OneTrainer\\experiments\\sdxl-long-caption\\images\\short225_seed42_512.png",
+            "size": [
+              512,
+              512
+            ]
+          },
+          "123": {
+            "path": "D:\\OneTrainer\\experiments\\sdxl-long-caption\\images\\short225_seed123_512.png",
+            "size": [
+              512,
+              512
+            ]
+          }
+        },
+        "longA75": {
+          "42": {
+            "path": "D:\\OneTrainer\\experiments\\sdxl-long-caption\\images\\longA75_seed42_512.png",
+            "size": [
+              512,
+              512
+            ]
+          },
+          "123": {
+            "path": "D:\\OneTrainer\\experiments\\sdxl-long-caption\\images\\longA75_seed123_512.png",
+            "size": [
+              512,
+              512
+            ]
+          }
+        },
+        "longA225": {
+          "42": {
+            "path": "D:\\OneTrainer\\experiments\\sdxl-long-caption\\images\\longA225_seed42_512.png",
+            "size": [
+              512,
+              512
+            ]
+          },
+          "123": {
+            "path": "D:\\OneTrainer\\experiments\\sdxl-long-caption\\images\\longA225_seed123_512.png",
+            "size": [
+              512,
+              512
+            ]
+          }
+        },
+        "longB225": {
+          "42": {
+            "path": "D:\\OneTrainer\\experiments\\sdxl-long-caption\\images\\longB225_seed42_512.png",
+            "size": [
+              512,
+              512
+            ]
+          },
+          "123": {
+            "path": "D:\\OneTrainer\\experiments\\sdxl-long-caption\\images\\longB225_seed123_512.png",
+            "size": [
+              512,
+              512
+            ]
+          }
+        }
+      },
+      "contact_sheet": "D:\\OneTrainer\\experiments\\sdxl-long-caption\\images\\contact_sheet_512.png",
+      "comparisons": {
+        "42": {
+          "short_75_vs_225": {
+            "width_height": [
+              512,
+              512
+            ],
+            "exact_match": true,
+            "mean_absolute_pixel_difference": 0.0,
+            "max_absolute_pixel_difference": 0.0,
+            "rmse": 0.0,
+            "psnr_db": null
+          },
+          "long_75_vs_225": {
+            "width_height": [
+              512,
+              512
+            ],
+            "exact_match": false,
+            "mean_absolute_pixel_difference": 0.319343626499176,
+            "max_absolute_pixel_difference": 1.0,
+            "rmse": 0.41527320988835176,
+            "psnr_db": 7.6333217039735155
+          },
+          "third_chunk_A_vs_B_225": {
+            "width_height": [
+              512,
+              512
+            ],
+            "exact_match": false,
+            "mean_absolute_pixel_difference": 0.2524375319480896,
+            "max_absolute_pixel_difference": 1.0,
+            "rmse": 0.3857593967123923,
+            "psnr_db": 8.273669723150551
+          }
+        },
+        "123": {
+          "short_75_vs_225": {
+            "width_height": [
+              512,
+              512
+            ],
+            "exact_match": true,
+            "mean_absolute_pixel_difference": 0.0,
+            "max_absolute_pixel_difference": 0.0,
+            "rmse": 0.0,
+            "psnr_db": null
+          },
+          "long_75_vs_225": {
+            "width_height": [
+              512,
+              512
+            ],
+            "exact_match": false,
+            "mean_absolute_pixel_difference": 0.42722031474113464,
+            "max_absolute_pixel_difference": 1.0,
+            "rmse": 0.5094833761896773,
+            "psnr_db": 5.857399638327695
+          },
+          "third_chunk_A_vs_B_225": {
+            "width_height": [
+              512,
+              512
+            ],
+            "exact_match": false,
+            "mean_absolute_pixel_difference": 0.30651989579200745,
+            "max_absolute_pixel_difference": 1.0,
+            "rmse": 0.3869460237599682,
+            "psnr_db": 8.246992235440448
+          }
+        }
+      },
+      "notes": "Pixel metrics measure image changes, not perceptual quality or improved prompt adherence."
+    },
+    "short_caption_conditioning": {
+      "status": "completed",
+      "caption_token_counts": [
+        40,
+        40
+      ],
+      "text_encoder_75_vs_150_225": {
+        "150": {
+          "clip_l_hidden": {
+            "elements": 59136,
+            "l2_absolute": 0.0,
+            "l2_relative_to_left": 0.0,
+            "max_absolute": 0.0,
+            "mean_absolute": 0.0,
+            "left_l2": 205.53892372422828
+          },
+          "clip_g_hidden": {
+            "elements": 98560,
+            "l2_absolute": 0.0,
+            "l2_relative_to_left": 0.0,
+            "max_absolute": 0.0,
+            "mean_absolute": 0.0,
+            "left_l2": 251.66762455592368
+          },
+          "pooled_clip_g": {
+            "elements": 1280,
+            "l2_absolute": 0.0,
+            "l2_relative_to_left": 0.0,
+            "max_absolute": 0.0,
+            "mean_absolute": 0.0,
+            "left_l2": 21.09650092146573
+          },
+          "clip_l_token_ids_equal": true,
+          "clip_g_token_ids_equal": true
+        },
+        "225": {
+          "clip_l_hidden": {
+            "elements": 59136,
+            "l2_absolute": 0.0,
+            "l2_relative_to_left": 0.0,
+            "max_absolute": 0.0,
+            "mean_absolute": 0.0,
+            "left_l2": 205.53892372422828
+          },
+          "clip_g_hidden": {
+            "elements": 98560,
+            "l2_absolute": 0.0,
+            "l2_relative_to_left": 0.0,
+            "max_absolute": 0.0,
+            "mean_absolute": 0.0,
+            "left_l2": 251.66762455592368
+          },
+          "pooled_clip_g": {
+            "elements": 1280,
+            "l2_absolute": 0.0,
+            "l2_relative_to_left": 0.0,
+            "max_absolute": 0.0,
+            "mean_absolute": 0.0,
+            "left_l2": 21.09650092146573
+          },
+          "clip_l_token_ids_equal": true,
+          "clip_g_token_ids_equal": true
+        }
+      },
+      "pretrained_unet_75_vs_225_prediction": {
+        "latent_noise_target": {
+          "elements": 4096,
+          "l2_absolute": 0.0,
+          "l2_relative_to_left": 0.0,
+          "max_absolute": 0.0,
+          "mean_absolute": 0.0,
+          "left_l2": 63.198513571837054
+        },
+        "predicted_noise": {
+          "elements": 4096,
+          "l2_absolute": 0.0,
+          "l2_relative_to_left": 0.0,
+          "max_absolute": 0.0,
+          "mean_absolute": 0.0,
+          "left_l2": 48.72500750873547
+        },
+        "timestep_equal": true
+      }
+    },
+    "real_unet_lora_gradients": {
+      "status": "completed",
+      "fixed_inputs": {
+        "checkpoint_sha256": "3e15ba00387db678ab4a099f75771c4f5ac67fda9e7100a01d263eaf30145aa9",
+        "same_initial_adapter_state": true,
+        "same_image_latent": true,
+        "same_prediction_noise_and_timestep": true,
+        "frozen_text_encoders": true,
+        "caption_dropout": 0.0,
+        "loss": "OneTrainer SDXL setup.calculate_loss (MSE target, constant weighting)",
+        "resolution": 256,
+        "latent_shape": [
+          1,
+          4,
+          32,
+          32
+        ],
+        "batch_size": 1,
+        "precision": "FP16 UNet autocast, FP32 trainable LoRA"
+      },
+      "first_two_chunks_identical_for_both_tokenizers": true,
+      "75_token_cache_controls": {
+        "tokens_l_equal_at_75": true,
+        "tokens_g_equal_at_75": true,
+        "clip_l_hidden_equal_at_75": true,
+        "clip_g_hidden_equal_at_75": true,
+        "pooled_equal_at_75": true
+      },
+      "results": {
+        "A1_75": {
+          "loss": 0.3033269941806793,
+          "gradient_l2": 0.0003721904067788273,
+          "update_l2": 0.014936327934265137,
+          "update_finite": true,
+          "microstep_seconds": 1.1318199000006643,
+          "peak_cuda_memory": {
+            "allocated_bytes": 5337615360,
+            "reserved_bytes": 5559549952
+          }
+        },
+        "A2_75": {
+          "loss": 0.3033269941806793,
+          "gradient_l2": 0.0003721904067788273,
+          "update_l2": 0.014936327934265137,
+          "update_finite": true,
+          "microstep_seconds": 0.894807600000604,
+          "peak_cuda_memory": {
+            "allocated_bytes": 5337701376,
+            "reserved_bytes": 5559549952
+          }
+        },
+        "B1_225": {
+          "loss": 0.3029935956001282,
+          "gradient_l2": 0.0005572286318056285,
+          "update_l2": 0.014916989952325821,
+          "update_finite": true,
+          "microstep_seconds": 0.8484779999998864,
+          "peak_cuda_memory": {
+            "allocated_bytes": 5339051008,
+            "reserved_bytes": 5559549952
+          }
+        },
+        "B2_225": {
+          "loss": 0.3040478229522705,
+          "gradient_l2": 0.00056189124006778,
+          "update_l2": 0.014961149543523788,
+          "update_finite": true,
+          "microstep_seconds": 0.738333799999964,
+          "peak_cuda_memory": {
+            "allocated_bytes": 5339137024,
+            "reserved_bytes": 5561647104
+          }
+        }
+      },
+      "gradient_differences": {
+        "75_caption_A_vs_B": {
+          "elements": 10752,
+          "l2_absolute": 0.0,
+          "l2_relative_to_left": 0.0,
+          "max_absolute": 0.0,
+          "mean_absolute": 0.0,
+          "left_l2": 0.00037219039784815595
+        },
+        "75_repeat_control": {
+          "elements": 10752,
+          "l2_absolute": 0.0,
+          "l2_relative_to_left": 0.0,
+          "max_absolute": 0.0,
+          "mean_absolute": 0.0,
+          "left_l2": 0.00037219039784815595
+        },
+        "225_caption_A_vs_B_third_chunk": {
+          "elements": 10752,
+          "l2_absolute": 0.0001479740378295205,
+          "l2_relative_to_left": 0.2655535182822558,
+          "max_absolute": 2.2292137145996094e-05,
+          "mean_absolute": 4.5702992273228507e-07,
+          "left_l2": 0.000557228685150537
+        },
+        "225_caption_A_vs_B_chunk_two_only": {
+          "elements": 10752,
+          "l2_absolute": 0.0002476021065936417,
+          "l2_relative_to_left": 0.3621228651711448,
+          "max_absolute": 4.595518112182617e-05,
+          "mean_absolute": 6.917897345764297e-07,
+          "left_l2": 0.0006837516500832422
+        }
+      },
+      "prediction_controls": {
+        "75_A_vs_B_target_noise": {
+          "elements": 4096,
+          "l2_absolute": 0.0,
+          "l2_relative_to_left": 0.0,
+          "max_absolute": 0.0,
+          "mean_absolute": 0.0,
+          "left_l2": 63.198513571837054
+        },
+        "75_A_vs_B_unet_prediction": {
+          "elements": 4096,
+          "l2_absolute": 0.0,
+          "l2_relative_to_left": 0.0,
+          "max_absolute": 0.0,
+          "mean_absolute": 0.0,
+          "left_l2": 48.86614561650677
+        },
+        "75_A_vs_A_repeat_unet_prediction": {
+          "elements": 4096,
+          "l2_absolute": 0.0,
+          "l2_relative_to_left": 0.0,
+          "max_absolute": 0.0,
+          "mean_absolute": 0.0,
+          "left_l2": 48.86614561650677
+        },
+        "75_A_vs_B_timestep_equal": true,
+        "75_A_vs_A_repeat_timestep_equal": true
+      },
+      "chunk_two_losses": {
+        "A": 0.30065348744392395,
+        "B": 0.30348947644233704
+      },
+      "repeat_control_loss": 0.3033269941806793,
+      "repeat_control_peak": {
+        "allocated_bytes": 5337959424,
+        "reserved_bytes": 5561647104
+      },
+      "repeat_control_microstep_seconds": 0.8113043000003017,
+      "chunk_two_peak": {
+        "A": {
+          "allocated_bytes": 5339309056,
+          "reserved_bytes": 5561647104
+        },
+        "B": {
+          "allocated_bytes": 5339395072,
+          "reserved_bytes": 5561647104
+        }
+      },
+      "elapsed_seconds": 6.077821300000323,
+      "peak_cuda_memory": {
+        "allocated_bytes": 5260011008,
+        "reserved_bytes": 5561647104
+      }
+    },
+    "optimizer_updates": {
+      "status": "completed",
+      "one_update_each": {
+        "A1_75": {
+          "loss": 0.3033269941806793,
+          "gradient_l2": 0.0003721904067788273,
+          "update_l2": 0.014936327934265137,
+          "update_finite": true,
+          "microstep_seconds": 1.1318199000006643,
+          "peak_cuda_memory": {
+            "allocated_bytes": 5337615360,
+            "reserved_bytes": 5559549952
+          }
+        },
+        "A2_75": {
+          "loss": 0.3033269941806793,
+          "gradient_l2": 0.0003721904067788273,
+          "update_l2": 0.014936327934265137,
+          "update_finite": true,
+          "microstep_seconds": 0.894807600000604,
+          "peak_cuda_memory": {
+            "allocated_bytes": 5337701376,
+            "reserved_bytes": 5559549952
+          }
+        },
+        "B1_225": {
+          "loss": 0.3029935956001282,
+          "gradient_l2": 0.0005572286318056285,
+          "update_l2": 0.014916989952325821,
+          "update_finite": true,
+          "microstep_seconds": 0.8484779999998864,
+          "peak_cuda_memory": {
+            "allocated_bytes": 5339051008,
+            "reserved_bytes": 5559549952
+          }
+        },
+        "B2_225": {
+          "loss": 0.3040478229522705,
+          "gradient_l2": 0.00056189124006778,
+          "update_l2": 0.014961149543523788,
+          "update_finite": true,
+          "microstep_seconds": 0.738333799999964,
+          "peak_cuda_memory": {
+            "allocated_bytes": 5339137024,
+            "reserved_bytes": 5561647104
+          }
+        }
+      },
+      "update_differences": {
+        "75_A_vs_B": {
+          "elements": 10752,
+          "l2_absolute": 0.0,
+          "l2_relative_to_left": 0.0,
+          "max_absolute": 0.0,
+          "mean_absolute": 0.0,
+          "left_l2": 0.014936327307091064
+        },
+        "225_A_vs_B": {
+          "elements": 10752,
+          "l2_absolute": 0.010809511384923247,
+          "l2_relative_to_left": 0.7246444139776507,
+          "max_absolute": 0.0005991326761431992,
+          "mean_absolute": 1.9772430960074416e-05,
+          "left_l2": 0.014916987113153446
+        },
+        "75_vs_225_same_caption_A": {
+          "elements": 10752,
+          "l2_absolute": 0.014996584131590487,
+          "l2_relative_to_left": 1.0040342463887235,
+          "max_absolute": 0.0005993224040139467,
+          "mean_absolute": 3.668340199662149e-05,
+          "left_l2": 0.014936327307091064
+        }
+      }
+    },
+    "controlled_training": {
+      "status": "completed",
+      "train75": {
+        "updates": 8,
+        "losses": [
+          0.39654839038848877,
+          0.026682432740926743,
+          0.36432087421417236,
+          0.0543619841337204,
+          0.5544124841690063,
+          0.07919830083847046,
+          0.47336363792419434,
+          0.020920809358358383
+        ]
+      },
+      "train225": {
+        "updates": 8,
+        "losses": [
+          0.39711305499076843,
+          0.027595072984695435,
+          0.3647533059120178,
+          0.05392703413963318,
+          0.5560045838356018,
+          0.07899859547615051,
+          0.4734850525856018,
+          0.019995804876089096
+        ]
+      },
+      "same_initial_lora": true,
+      "same_image_latent_and_sample_exposures": true,
+      "same_optimizer_and_update_schedule": true,
+      "same_noise_and_timestep_per_step": true,
+      "train75_vs_train225_final_parameter_delta": {
+        "elements": 10753,
+        "l2_absolute": 0.07403895945027154,
+        "l2_relative_to_left": 0.01778267944099009,
+        "max_absolute": 0.0033623231574892998,
+        "mean_absolute": 0.00054971551859259,
+        "left_l2": 4.163543502876598
+      },
+      "elapsed_seconds": 13.944430300000022,
+      "peak_cuda_memory": {
+        "allocated_bytes": 5338243072,
+        "reserved_bytes": 5561647104
+      },
+      "sample_image": "D:\\OneTrainer\\experiments\\sdxl-long-caption\\images\\longA225_seed42_512.png",
+      "evaluation": {
+        "prompt": "1girl, solo, portrait, looking_at_viewer, smile, blush, long_hair, brown_hair, blue_eyes, eyelashes, hair_ribbon, side_ponytail, braid, loose_hair, windblown_hair, school_uniform, white_shirt, red_necktie, pleated_skirt, black_socks, loafers, backpack, hand_on_hip, peace_sign, open_mouth, teeth, small_mouth, earrings, hair_ornament, star_hair_ornament, sunlight, blue_sky, clouds, city_street, school, window, curtain, wooden_desk, book, notebook, pen, flower, potted_plant, green_leaves, tea_cup, red_hair, fox_ears, black_kimono, red_sash, katana, sword, shrine_gate, stone_lantern, maple_leaves, autumn_shrine, sunset_glow, embers, wind_motions, dramatic_pose, confident_smile, golden_eyes, ornate_sheath, red_tassel",
+        "capacity": 225,
+        "seeds": [
+          42,
+          123
+        ],
+        "same_sampler_settings": true,
+        "images": {
+          "train75": {
+            "42": {
+              "path": "D:\\OneTrainer\\experiments\\sdxl-long-caption\\images\\train75_eval_seed42_512.png",
+              "size": [
+                512,
+                512
+              ]
+            },
+            "123": {
+              "path": "D:\\OneTrainer\\experiments\\sdxl-long-caption\\images\\train75_eval_seed123_512.png",
+              "size": [
+                512,
+                512
+              ]
+            }
+          },
+          "train225": {
+            "42": {
+              "path": "D:\\OneTrainer\\experiments\\sdxl-long-caption\\images\\train225_eval_seed42_512.png",
+              "size": [
+                512,
+                512
+              ]
+            },
+            "123": {
+              "path": "D:\\OneTrainer\\experiments\\sdxl-long-caption\\images\\train225_eval_seed123_512.png",
+              "size": [
+                512,
+                512
+              ]
+            }
+          }
+        },
+        "contact_sheet": "D:\\OneTrainer\\experiments\\sdxl-long-caption\\images\\training_effect_contact_sheet_512.png",
+        "pixel_differences": {
+          "42": {
+            "width_height": [
+              512,
+              512
+            ],
+            "exact_match": false,
+            "mean_absolute_pixel_difference": 0.06433478742837906,
+            "max_absolute_pixel_difference": 0.9921568632125854,
+            "rmse": 0.120846310965483,
+            "psnr_db": 18.355332052298785
+          },
+          "123": {
+            "width_height": [
+              512,
+              512
+            ],
+            "exact_match": false,
+            "mean_absolute_pixel_difference": 0.1108003482222557,
+            "max_absolute_pixel_difference": 0.9960784316062927,
+            "rmse": 0.17422109290117113,
+            "psnr_db": 15.177985324565725
+          }
+        },
+        "quality_interpretation": "Output differences show an update effect, not proof that longer captions improve quality."
+      }
+    },
+    "performance": {
+      "text_encoding_seconds": {
+        "short40": {
+          "75": 0.07263890000012907,
+          "150": 0.07045509999989008,
+          "225": 0.07371370000055322
+        },
+        "third_a": {
+          "75": 0.06624709999960032,
+          "150": 0.08364249999976892,
+          "225": 0.0820795999998154
+        },
+        "third_b": {
+          "75": 0.06162560000029771,
+          "150": 0.07368200000018987,
+          "225": 0.07802839999931166
+        },
+        "chunk2_a": {
+          "75": 0.0708812000002581,
+          "150": 0.07613939999919239,
+          "225": 0.07888050000019575
+        },
+        "chunk2_b": {
+          "75": 0.06571840000015072,
+          "150": 0.07537000000047556,
+          "225": 0.07418739999957324
+        }
+      },
+      "text_encoding_total_seconds": 1.149004099999729,
+      "text_encoding_peak_cuda_memory": {
+        "allocated_bytes": 1777271808,
+        "reserved_bytes": 2019557376
+      },
+      "training_attention_backend": "OneTrainer native SDP with PyTorch default backend selection",
+      "training_microsteps": {
+        "short40_75": {
+          "seconds": 0.8089999000003445,
+          "loss": 0.3047860264778137,
+          "peak_cuda_memory": {
+            "allocated_bytes": 5337466368,
+            "reserved_bytes": 5561647104
+          },
+          "batch_size": 1,
+          "train_resolution": 256,
+          "latent_shape": [
+            1,
+            4,
+            32,
+            32
+          ],
+          "precision": "FP16 UNet autocast / FP32 LoRA"
+        },
+        "short40_150": {
+          "seconds": 0.5651572999995551,
+          "loss": 0.3047860264778137,
+          "peak_cuda_memory": {
+            "allocated_bytes": 5337781760,
+            "reserved_bytes": 5561647104
+          },
+          "batch_size": 1,
+          "train_resolution": 256,
+          "latent_shape": [
+            1,
+            4,
+            32,
+            32
+          ],
+          "precision": "FP16 UNet autocast / FP32 LoRA"
+        },
+        "short40_225": {
+          "seconds": 0.5610255000001416,
+          "loss": 0.3047860264778137,
+          "peak_cuda_memory": {
+            "allocated_bytes": 5338200576,
+            "reserved_bytes": 5561647104
+          },
+          "batch_size": 1,
+          "train_resolution": 256,
+          "latent_shape": [
+            1,
+            4,
+            32,
+            32
+          ],
+          "precision": "FP16 UNet autocast / FP32 LoRA"
+        },
+        "longA_75": {
+          "seconds": 0.554895199999919,
+          "loss": 0.3033198118209839,
+          "peak_cuda_memory": {
+            "allocated_bytes": 5337466368,
+            "reserved_bytes": 5561647104
+          },
+          "batch_size": 1,
+          "train_resolution": 256,
+          "latent_shape": [
+            1,
+            4,
+            32,
+            32
+          ],
+          "precision": "FP16 UNet autocast / FP32 LoRA"
+        },
+        "longA_150": {
+          "seconds": 0.5917297999994844,
+          "loss": 0.30414116382598877,
+          "peak_cuda_memory": {
+            "allocated_bytes": 5337781760,
+            "reserved_bytes": 5561647104
+          },
+          "batch_size": 1,
+          "train_resolution": 256,
+          "latent_shape": [
+            1,
+            4,
+            32,
+            32
+          ],
+          "precision": "FP16 UNet autocast / FP32 LoRA"
+        },
+        "longA_225": {
+          "seconds": 0.5443520999997418,
+          "loss": 0.30296939611434937,
+          "peak_cuda_memory": {
+            "allocated_bytes": 5338200576,
+            "reserved_bytes": 5561647104
+          },
+          "batch_size": 1,
+          "train_resolution": 256,
+          "latent_shape": [
+            1,
+            4,
+            32,
+            32
+          ],
+          "precision": "FP16 UNet autocast / FP32 LoRA"
+        }
+      }
+    }
+  },
+  "loaded_model": {
+    "unet_parameters": 2567463684,
+    "unet_parameter_dtypes": [
+      "torch.float16"
+    ],
+    "clip_l_parameter_dtypes": [
+      "torch.float16"
+    ],
+    "clip_g_parameter_dtypes": [
+      "torch.float16"
+    ],
+    "unet_cross_attention_dim": 2048
+  }
+}

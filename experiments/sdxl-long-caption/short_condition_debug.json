@@ -1,0 +1,103 @@
+{
+  "environment": {
+    "python": "3.12.2 (tags/v3.12.2:6abddd9, Feb  6 2024, 21:26:36) [MSC v.1937 64 bit (AMD64)]",
+    "torch": "2.12.0+cu130",
+    "diffusers": "0.39.0.dev0",
+    "transformers": "5.5.4",
+    "checkpoint": "D:\\ComfyUI\\ComfyUI\\ComfyUI\\models\\checkpoints\\illustriousXL_v01.safetensors",
+    "checkpoint_sha256": "3e15ba00387db678ab4a099f75771c4f5ac67fda9e7100a01d263eaf30145aa9",
+    "onetrainer_commit": "1906424bc4b064f07c94e2f64d3d3d28ba100edd",
+    "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU"
+  },
+  "sampling_parameters": {
+    "sampler": "OneTrainer StableDiffusionXLSampler / Euler",
+    "steps": 8,
+    "cfg": 7.0,
+    "height": 512,
+    "width": 512,
+    "seed": 42,
+    "negative_prompt": "",
+    "attention": "deterministic PyTorch SDPA math backend"
+  },
+  "caption": "1girl, solo, portrait, looking_at_viewer, smile, blush, long_hair, brown_hair, blue_eyes, eyelashes, hair_ribbon, side_ponytail, braid",
+  "token_counts": [
+    40,
+    40
+  ],
+  "conditioning_comparisons": {
+    "positive": {
+      "clip_l_hidden_equal": true,
+      "clip_g_hidden_equal": true,
+      "pooled_equal": true,
+      "clip_l_max_abs": 0.0,
+      "clip_g_max_abs": 0.0,
+      "pooled_max_abs": 0.0
+    },
+    "negative": {
+      "clip_l_hidden_equal": true,
+      "clip_g_hidden_equal": true,
+      "pooled_equal": true,
+      "clip_l_max_abs": 0.0,
+      "clip_g_max_abs": 0.0,
+      "pooled_max_abs": 0.0
+    }
+  },
+  "cfg_denoising_controls": {
+    "latent_initial_equal": true,
+    "encoder_hidden_first_77_equal": true,
+    "pooled_equal": true,
+    "per_step_prediction_max_abs": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "final_latent_max_abs": 0.0,
+    "final_latent_mean_abs": 0.0
+  },
+  "image_files": {
+    "short75_first": "D:\\OneTrainer\\experiments\\sdxl-long-caption\\images\\debug_short75_first_seed42.png",
+    "short75_repeat": "D:\\OneTrainer\\experiments\\sdxl-long-caption\\images\\debug_short75_repeat_seed42.png",
+    "short225": "D:\\OneTrainer\\experiments\\sdxl-long-caption\\images\\debug_short225_seed42.png",
+    "short225_repeat": "D:\\OneTrainer\\experiments\\sdxl-long-caption\\images\\debug_short225_repeat_seed42.png"
+  },
+  "image_comparisons": {
+    "75_first_vs_repeat": {
+      "width_height": [
+        512,
+        512
+      ],
+      "exact_match": true,
+      "mean_absolute_pixel_difference": 0.0,
+      "max_absolute_pixel_difference": 0.0,
+      "rmse": 0.0,
+      "psnr_db": null
+    },
+    "225_first_vs_repeat": {
+      "width_height": [
+        512,
+        512
+      ],
+      "exact_match": true,
+      "mean_absolute_pixel_difference": 0.0,
+      "max_absolute_pixel_difference": 0.0,
+      "rmse": 0.0,
+      "psnr_db": null
+    },
+    "75_vs_225": {
+      "width_height": [
+        512,
+        512
+      ],
+      "exact_match": true,
+      "mean_absolute_pixel_difference": 0.0,
+      "max_absolute_pixel_difference": 0.0,
+      "rmse": 0.0,
+      "psnr_db": null
+    }
+  }
+}
