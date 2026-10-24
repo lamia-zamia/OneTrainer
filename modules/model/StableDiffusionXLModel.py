@@ -2,7 +2,12 @@ from contextlib import nullcontext
 from random import Random
 
 from modules.model.BaseModel import BaseModel, BaseModelEmbedding
-from modules.model.util.clip_chunk import encode_clip_chunks, tokenize_clip_chunks, validate_sdxl_caption_token_limit
+from modules.model.util.clip_chunk import (
+    encode_clip_chunks,
+    sdxl_chunk_attention_mask,
+    tokenize_clip_chunks,
+    validate_sdxl_caption_token_limit,
+)
 from modules.model.util.clip_util import encode_clip
 from modules.module.AdditionalEmbeddingWrapper import AdditionalEmbeddingWrapper
 from modules.module.LoRAModule import LoRAModuleWrapper
@@ -239,7 +244,8 @@ class StableDiffusionXLModel(BaseModel):
             text_encoder_2_dropout_probability: float | None = None,
             pooled_text_encoder_2_output: Tensor = None,
             max_caption_tokens: int = 75,
-    ) -> tuple[Tensor, Tensor, Tensor]:
+            return_chunk_attention_mask: bool = False,
+    ) -> tuple[Tensor, Tensor, Tensor] | tuple[Tensor, Tensor, Tensor, Tensor | None]:
         max_caption_tokens = validate_sdxl_caption_token_limit(max_caption_tokens)
         expected_token_length = (max_caption_tokens // 75) * 77
         for encoder_name, tokens in (("CLIP-L", tokens_1), ("CLIP-G", tokens_2)):
@@ -285,12 +291,26 @@ class StableDiffusionXLModel(BaseModel):
                 )
                 tokens_2 = tokenizer_output.input_ids.to(self.text_encoder_2.device)
 
+        chunk_attention_mask = None
+        if max_caption_tokens > 75 and tokens_1 is not None and tokens_2 is not None:
+            chunk_attention_mask = sdxl_chunk_attention_mask(
+                self.tokenizer_1,
+                tokens_1,
+                self.tokenizer_2,
+                tokens_2,
+                max_caption_tokens,
+            ).to(device=train_device)
+        elif return_chunk_attention_mask and max_caption_tokens > 75:
+            if tokens_1 is None or tokens_2 is None:
+                raise ValueError("Chunked SDXL attention masking requires tokens for both text encoders")
+
         if tokens_1 is not None and tokens_1.shape[-1] > 77:
             if text_encoder_1_output is None:
                 text_encoder_1_output, _ = encode_clip_chunks(
                     self.text_encoder_1,
                     tokens_1,
                     hidden_state_output_index=-(2 + text_encoder_1_layer_skip),
+                    chunk_attention_mask=chunk_attention_mask,
                 )
         else:
             text_encoder_1_output, _ = encode_clip(
@@ -311,6 +331,7 @@ class StableDiffusionXLModel(BaseModel):
                     tokens_2,
                     hidden_state_output_index=-(2 + text_encoder_2_layer_skip),
                     add_pooled_output=True,
+                    chunk_attention_mask=chunk_attention_mask,
                 )
                 if text_encoder_2_output is None:
                     text_encoder_2_output = chunk_output
@@ -357,7 +378,10 @@ class StableDiffusionXLModel(BaseModel):
             pooled_text_encoder_2_output = pooled_text_encoder_2_output * dropout_text_encoder_2_mask[:, None]
             text_encoder_2_output = text_encoder_2_output * dropout_text_encoder_2_mask[:, None, None]
 
-        return text_encoder_1_output, text_encoder_2_output, pooled_text_encoder_2_output
+        outputs = (text_encoder_1_output, text_encoder_2_output, pooled_text_encoder_2_output)
+        if return_chunk_attention_mask:
+            return outputs + (chunk_attention_mask,)
+        return outputs
 
     def combine_text_encoder_output(
             self,

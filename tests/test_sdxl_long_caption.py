@@ -15,6 +15,8 @@ from modules.model.util.clip_chunk import (
     CLIP_CHUNK_TOKENS,
     CLIP_CONTENT_TOKENS,
     encode_clip_chunks,
+    sdxl_chunk_attention_mask,
+    sdxl_chunk_aware_unet_prediction,
     tokenize_clip_chunks,
     validate_sdxl_caption_token_limit,
 )
@@ -214,6 +216,163 @@ class SDXLLongCaptionUnitTests(unittest.TestCase):
         self.assertEqual(torch.cat([negative_conditioning[0], positive_conditioning[0]]).shape, (2, 231, 2048))
         self.assertEqual(torch.cat([negative_conditioning[1], positive_conditioning[1]]).shape, (2, 1280))
 
+    def test_chunk_attention_mask_preserves_short_and_aligned_conditioning(self):
+        if self.tokenizers is None:
+            self.skipTest("cached SDXL CLIP-L/CLIP-G tokenizer assets are unavailable")
+
+        tokenizer_1, tokenizer_2 = self.tokenizers
+        captions = (
+            ("", 1),
+            (_caption_with_content_count(tokenizer_1, 40), 1),
+            (_caption_with_content_count(tokenizer_1, 75), 1),
+            (_caption_with_content_count(tokenizer_1, 76), 2),
+            (_caption_with_content_count(tokenizer_1, 150), 2),
+            (_caption_with_content_count(tokenizer_1, 151), 3),
+            (_caption_with_content_count(tokenizer_1, 225), 3),
+        )
+        for caption, expected_chunks in captions:
+            tokens_1, _ = tokenize_clip_chunks(tokenizer_1, caption, 225)
+            tokens_2, _ = tokenize_clip_chunks(tokenizer_2, caption, 225)
+            mask = sdxl_chunk_attention_mask(
+                tokenizer_1, tokens_1, tokenizer_2, tokens_2, 225
+            )
+            self.assertEqual(mask.shape, (1, 231))
+            self.assertTrue(torch.all(mask[0, :expected_chunks * 77] == 1))
+            self.assertTrue(torch.all(mask[0, expected_chunks * 77:] == 0))
+
+        short = _caption_with_content_count(tokenizer_1, 40)
+        short_1, _ = tokenize_clip_chunks(tokenizer_1, short, 225)
+        short_2, _ = tokenize_clip_chunks(tokenizer_2, short, 225)
+        legacy_1, _ = tokenize_clip_chunks(tokenizer_1, short, 75)
+        legacy_2, _ = tokenize_clip_chunks(tokenizer_2, short, 75)
+        self.assertTrue(torch.equal(short_1[:77], legacy_1))
+        self.assertTrue(torch.equal(short_2[:77], legacy_2))
+
+        aligned_l, _ = tokenize_clip_chunks(
+            tokenizer_1, _caption_with_content_count(tokenizer_1, 151), 225
+        )
+        aligned_g, _ = tokenize_clip_chunks(
+            tokenizer_2, _caption_with_content_count(tokenizer_2, 151), 225
+        )
+        aligned_g[2 * 77 + 1:] = tokenizer_2.pad_token_id
+        aligned_g[2 * 77] = tokenizer_2.bos_token_id
+        aligned_g[2 * 77 + 1] = tokenizer_2.eos_token_id
+        aligned_mask = sdxl_chunk_attention_mask(
+            tokenizer_1, aligned_l, tokenizer_2, aligned_g, 225
+        )
+        self.assertTrue(torch.all(aligned_mask[0, :2 * 77] == 1))
+        self.assertTrue(torch.all(aligned_mask[0, 2 * 77:] == 0))
+
+        short = _caption_with_content_count(tokenizer_1, 40)
+        long = _caption_with_content_count(tokenizer_1, 151)
+        batch_l = torch.stack([tokenize_clip_chunks(tokenizer_1, prompt, 225)[0] for prompt in (short, long)])
+        batch_g = torch.stack([tokenize_clip_chunks(tokenizer_2, prompt, 225)[0] for prompt in (short, long)])
+        batch_mask = sdxl_chunk_attention_mask(tokenizer_1, batch_l, tokenizer_2, batch_g, 225)
+        self.assertEqual(batch_mask.shape, (2, 231))
+        self.assertTrue(torch.all(batch_mask[0, :77] == 1))
+        self.assertTrue(torch.all(batch_mask[0, 77:] == 0))
+        self.assertTrue(torch.all(batch_mask[1, :3 * 77] == 1))
+        self.assertTrue(torch.all(batch_mask[1, 3 * 77:] == 0))
+
+        # Classifier-free guidance concatenates negative then positive conditioning and masks.
+        cfg_mask = torch.cat([batch_mask[:1], batch_mask[1:]], dim=0)
+        self.assertEqual(cfg_mask.shape, (2, 231))
+        self.assertTrue(torch.equal(cfg_mask[0], batch_mask[0]))
+        self.assertTrue(torch.equal(cfg_mask[1], batch_mask[1]))
+
+    def test_chunk_aware_unet_groups_mixed_lengths_and_restores_order(self):
+        class RecordingUNet:
+            def __init__(self):
+                self.sequence_lengths = []
+
+            def __call__(self, *, sample, timestep, encoder_hidden_states, added_cond_kwargs):
+                self.sequence_lengths.append(encoder_hidden_states.shape[1])
+                pooled = encoder_hidden_states.mean(dim=(1, 2)).view(-1, 1, 1, 1)
+                time_condition = added_cond_kwargs["text_embeds"].mean(dim=1).view(-1, 1, 1, 1)
+                return type("Output", (), {"sample": sample + pooled + time_condition})()
+
+        batch_size = 3
+        hidden = torch.randn(batch_size, 231, 4, requires_grad=True)
+        sample = torch.zeros(batch_size, 2, 2, 2)
+        timestep = torch.tensor([5, 7, 11])
+        pooled = torch.randn(batch_size, 6)
+        mask = torch.cat([
+            torch.cat([torch.ones(1, 77), torch.zeros(1, 154)], dim=1),
+            torch.ones(1, 231),
+            torch.cat([torch.ones(1, 154), torch.zeros(1, 77)], dim=1),
+        ]).long()
+        unet = RecordingUNet()
+        result = sdxl_chunk_aware_unet_prediction(
+            unet,
+            sample,
+            timestep,
+            hidden,
+            {"text_embeds": pooled},
+            mask,
+        )
+        self.assertEqual(sorted(unet.sequence_lengths), [77, 154, 231])
+        self.assertEqual(result.shape, sample.shape)
+        result.sum().backward()
+        self.assertIsNotNone(hidden.grad)
+        self.assertGreater(torch.linalg.vector_norm(hidden.grad).item(), 0)
+
+        short_hidden = torch.randn(2, 231, 4)
+        short_sample = torch.randn(2, 2, 2, 2)
+        short_pooled = torch.randn(2, 6)
+        short_mask = torch.cat([
+            torch.cat([torch.ones(1, 77), torch.zeros(1, 154)], dim=1),
+            torch.cat([torch.ones(1, 77), torch.zeros(1, 154)], dim=1),
+        ]).long()
+        extended_unet = RecordingUNet()
+        extended_output = sdxl_chunk_aware_unet_prediction(
+            extended_unet,
+            short_sample,
+            torch.tensor(5),
+            short_hidden,
+            {"text_embeds": short_pooled},
+            short_mask,
+        )
+        legacy_unet = RecordingUNet()
+        legacy_output = sdxl_chunk_aware_unet_prediction(
+            legacy_unet,
+            short_sample,
+            torch.tensor(5),
+            short_hidden[:, :77].contiguous(),
+            {"text_embeds": short_pooled},
+            None,
+        )
+        self.assertEqual(extended_unet.sequence_lengths, [77])
+        torch.testing.assert_close(extended_output, legacy_output, rtol=0, atol=0)
+
+    def test_short_caption_hidden_states_and_empty_prompt_mask(self):
+        if self.tokenizers is None:
+            self.skipTest("cached SDXL CLIP-L/CLIP-G tokenizer assets are unavailable")
+
+        model = _make_xl_model(self.tokenizers)
+        short = _caption_with_content_count(self.tokenizers[0], 40)
+        legacy = model.encode_text(text=short, train_device=torch.device("cpu"))
+        extended = model.encode_text(
+            text=short,
+            train_device=torch.device("cpu"),
+            max_caption_tokens=225,
+            return_chunk_attention_mask=True,
+        )
+        for legacy_output, extended_output in zip(legacy, extended[:3]):
+            torch.testing.assert_close(legacy_output, extended_output[..., :legacy_output.shape[-2], :]
+                                       if legacy_output.ndim == 3 else extended_output)
+        self.assertEqual(extended[3].shape, (1, 231))
+        self.assertTrue(torch.all(extended[3][:, :77] == 1))
+        self.assertTrue(torch.all(extended[3][:, 77:] == 0))
+
+        empty = model.encode_text(
+            text="",
+            train_device=torch.device("cpu"),
+            max_caption_tokens=225,
+            return_chunk_attention_mask=True,
+        )
+        self.assertTrue(torch.all(empty[3][:, :77] == 1))
+        self.assertTrue(torch.all(empty[3][:, 77:] == 0))
+
     def test_75_token_conditioning_matches_legacy_encoder_calls(self):
         if self.tokenizers is None:
             self.skipTest("cached SDXL CLIP-L/CLIP-G tokenizer assets are unavailable")
@@ -252,8 +411,10 @@ class SDXLLongCaptionUnitTests(unittest.TestCase):
             tokens_1=tokens_1.unsqueeze(0),
             tokens_2=tokens_2.unsqueeze(0),
             max_caption_tokens=225,
+            return_chunk_attention_mask=True,
         )
-        combined, pooled = model.combine_text_encoder_output(*output)
+        combined, pooled = model.combine_text_encoder_output(*output[:3])
+        self.assertTrue(torch.all(output[3] == 1))
         (combined.square().mean() + pooled.square().mean()).backward()
         gradient = model.text_encoder_1.text_model.encoder.layers[0].self_attn.q_proj.weight.grad
         self.assertIsNotNone(gradient)

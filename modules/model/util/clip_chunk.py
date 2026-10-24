@@ -19,6 +19,120 @@ def validate_sdxl_caption_token_limit(token_limit: int) -> int:
     return token_limit
 
 
+def sdxl_chunk_attention_mask(
+        tokenizer_1: CLIPTokenizer,
+        tokens_1: Tensor,
+        tokenizer_2: CLIPTokenizer,
+        tokens_2: Tensor,
+        token_limit: int,
+) -> Tensor:
+    """Mask capacity padding after the last prompt chunk, following SDXL's dual-encoder alignment."""
+    token_limit = validate_sdxl_caption_token_limit(token_limit)
+    max_chunks = token_limit // CLIP_CONTENT_TOKENS
+
+    def chunk_counts(tokenizer: CLIPTokenizer, tokens: Tensor) -> Tensor:
+        if tokens.ndim == 1:
+            tokens = tokens.unsqueeze(0)
+        expected_length = max_chunks * CLIP_CHUNK_TOKENS
+        if tokens.ndim != 2 or tokens.shape[-1] != expected_length:
+            raise ValueError(
+                f"Chunked SDXL tokens must have shape [batch, {expected_length}]"
+            )
+        if tokenizer.eos_token_id is None or tokenizer.pad_token_id is None:
+            raise ValueError("SDXL CLIP tokenizers must define EOS and PAD token IDs")
+
+        chunks = tokens.reshape(tokens.shape[0], max_chunks, CLIP_CHUNK_TOKENS)
+        content = chunks[:, :, 1:-1]
+        content_mask = content.ne(tokenizer.eos_token_id) & content.ne(tokenizer.pad_token_id)
+        present = content_mask.any(dim=-1)
+        # Empty prompts still have one real section containing BOS/EOS and the standard padding.
+        present[:, 0] = True
+        return present.sum(dim=-1)
+
+    counts_1 = chunk_counts(tokenizer_1, tokens_1)
+    counts_2 = chunk_counts(tokenizer_2, tokens_2).to(counts_1.device)
+    aligned_counts = torch.minimum(counts_1, counts_2)
+    chunk_indices = torch.arange(max_chunks, device=aligned_counts.device)
+    active_chunks = chunk_indices.unsqueeze(0) < aligned_counts.unsqueeze(1)
+    return active_chunks.repeat_interleave(CLIP_CHUNK_TOKENS, dim=-1).to(dtype=torch.long)
+
+
+def sdxl_chunk_aware_unet_prediction(
+        unet,
+        sample: Tensor,
+        timestep: Tensor,
+        encoder_hidden_states: Tensor,
+        added_cond_kwargs: dict[str, Tensor],
+        chunk_attention_mask: Tensor | None,
+) -> Tensor:
+    """Run each prompt-length group at its actual sequence length.
+
+    This keeps short prompts on the same UNet sequence shape as the legacy 75-token
+    path. Mixed-length batches are split by active chunk count, then predictions are
+    restored to their original order.
+    """
+    if chunk_attention_mask is None:
+        return unet(
+            sample=sample,
+            timestep=timestep,
+            encoder_hidden_states=encoder_hidden_states,
+            added_cond_kwargs=added_cond_kwargs,
+        ).sample
+
+    if chunk_attention_mask.ndim != 2 or chunk_attention_mask.shape[0] != sample.shape[0]:
+        raise ValueError("SDXL chunk attention mask must have one row per UNet sample")
+    if chunk_attention_mask.shape[1] != encoder_hidden_states.shape[1]:
+        raise ValueError("SDXL chunk attention mask length must match encoder hidden states")
+    if chunk_attention_mask.shape[1] % CLIP_CHUNK_TOKENS != 0:
+        raise ValueError("SDXL chunk attention mask length must be a multiple of 77")
+
+    active_chunk_counts = chunk_attention_mask.sum(dim=-1) // CLIP_CHUNK_TOKENS
+    if torch.any(active_chunk_counts < 1):
+        raise ValueError("Every SDXL prompt must retain at least its first CLIP chunk")
+
+    if torch.all(active_chunk_counts == active_chunk_counts[0]):
+        active_length = int(active_chunk_counts[0].item()) * CLIP_CHUNK_TOKENS
+        return unet(
+            sample=sample,
+            timestep=timestep,
+            encoder_hidden_states=encoder_hidden_states[:, :active_length].contiguous(),
+            added_cond_kwargs=added_cond_kwargs,
+        ).sample
+
+    predictions = None
+    batch_size = sample.shape[0]
+    for chunk_count_tensor in torch.unique(active_chunk_counts, sorted=True):
+        chunk_count = int(chunk_count_tensor.item())
+        indices = torch.nonzero(active_chunk_counts == chunk_count_tensor, as_tuple=False).flatten()
+        grouped_kwargs = {
+            key: value.index_select(0, indices)
+            if isinstance(value, Tensor) and value.ndim > 0 and value.shape[0] == batch_size
+            else value
+            for key, value in added_cond_kwargs.items()
+        }
+        grouped_timestep = (
+            timestep.index_select(0, indices)
+            if isinstance(timestep, Tensor) and timestep.ndim > 0 and timestep.shape[0] == batch_size
+            else timestep
+        )
+        grouped_prediction = unet(
+            sample=sample.index_select(0, indices),
+            timestep=grouped_timestep,
+            encoder_hidden_states=encoder_hidden_states.index_select(0, indices)[:, :chunk_count * CLIP_CHUNK_TOKENS],
+            added_cond_kwargs=grouped_kwargs,
+        ).sample
+        if predictions is None:
+            predictions = torch.empty(
+                (batch_size, *grouped_prediction.shape[1:]),
+                device=grouped_prediction.device,
+                dtype=grouped_prediction.dtype,
+            )
+        predictions.index_copy_(0, indices, grouped_prediction)
+
+    assert predictions is not None
+    return predictions
+
+
 def _tokenizer_lock(tokenizer: CLIPTokenizer) -> threading.Lock:
     lock = getattr(tokenizer, "_mgds_tokenizer_lock", None)
     if lock is None:
@@ -85,6 +199,7 @@ def encode_clip_chunks(
         tokens: Tensor,
         hidden_state_output_index: int,
         add_pooled_output: bool = False,
+        chunk_attention_mask: Tensor | None = None,
 ) -> tuple[Tensor, Tensor | None]:
     if tokens.ndim == 1:
         tokens = tokens.unsqueeze(0)
@@ -93,7 +208,20 @@ def encode_clip_chunks(
 
     batch_size, sequence_length = tokens.shape
     chunk_count = sequence_length // CLIP_CHUNK_TOKENS
-    chunk_tokens = tokens.reshape(batch_size * chunk_count, CLIP_CHUNK_TOKENS)
+    chunk_tokens = tokens.reshape(batch_size, chunk_count, CLIP_CHUNK_TOKENS)
+    active_chunks = None
+    if chunk_attention_mask is not None:
+        if chunk_attention_mask.shape != tokens.shape:
+            raise ValueError("SDXL chunk attention mask must match the token tensor shape")
+        active_chunks = chunk_attention_mask.to(device=tokens.device).reshape(
+            batch_size, chunk_count, CLIP_CHUNK_TOKENS
+        ).any(dim=-1)
+        chunk_indices = torch.nonzero(active_chunks, as_tuple=False)
+        if chunk_indices.numel() == 0:
+            raise ValueError("At least one SDXL CLIP chunk must be active")
+        chunk_tokens = chunk_tokens[chunk_indices[:, 0], chunk_indices[:, 1]]
+    else:
+        chunk_tokens = chunk_tokens.reshape(batch_size * chunk_count, CLIP_CHUNK_TOKENS)
     encoder_output = text_encoder(
         chunk_tokens,
         attention_mask=None,
@@ -102,7 +230,16 @@ def encode_clip_chunks(
     )
 
     hidden_state = encoder_output.hidden_states[hidden_state_output_index]
-    hidden_state = hidden_state.reshape(batch_size, sequence_length, hidden_state.shape[-1])
+    if active_chunks is None:
+        hidden_state = hidden_state.reshape(batch_size, sequence_length, hidden_state.shape[-1])
+    else:
+        hidden_dimension = hidden_state.shape[-1]
+        hidden_state = hidden_state.new_zeros((batch_size * chunk_count, CLIP_CHUNK_TOKENS, hidden_dimension))
+        flat_chunk_indices = chunk_indices[:, 0] * chunk_count + chunk_indices[:, 1]
+        hidden_state = hidden_state.index_copy(0, flat_chunk_indices, encoder_output.hidden_states[
+            hidden_state_output_index
+        ])
+        hidden_state = hidden_state.reshape(batch_size, sequence_length, hidden_dimension)
 
     pooled_state = None
     if add_pooled_output:
@@ -111,6 +248,13 @@ def encode_clip_chunks(
             pooled_state = getattr(encoder_output, "pooler_output", None)
         if pooled_state is None:
             raise ValueError("The SDXL pooled text encoder output is missing")
-        pooled_state = pooled_state.reshape(batch_size, chunk_count, -1)[:, 0]
+        if active_chunks is None:
+            pooled_state = pooled_state.reshape(batch_size, chunk_count, -1)[:, 0]
+        else:
+            first_chunk_positions = torch.nonzero(chunk_indices[:, 1] == 0, as_tuple=False).flatten()
+            first_chunk_batches = chunk_indices[first_chunk_positions, 0]
+            pooled_state = pooled_state.new_zeros((batch_size, pooled_state.shape[-1])).index_copy(
+                0, first_chunk_batches, pooled_state.index_select(0, first_chunk_positions)
+            )
 
     return hidden_state, pooled_state
