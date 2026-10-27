@@ -1,0 +1,104 @@
+{
+  "style_prefix": "masterpiece, best quality, amazing quality, very aesthetic, yoonalter",
+  "negative_prompt": "bad quality, worst quality, worst detail, censor, text, watermark, logo, signature",
+  "prompts": [
+    {
+      "id": "P6",
+      "group": "specified",
+      "text": "1girl, solo, orange hair, glasses, white camisole, sitting on a black leather sofa, indoors, living room, looking at viewer, crossed legs, soft lighting",
+      "screen": true
+    },
+    {
+      "id": "P7",
+      "group": "vague",
+      "text": "1girl, solo, sitting, indoors",
+      "screen": true
+    },
+    {
+      "id": "specified_cafe",
+      "group": "specified",
+      "text": "1girl, solo, adult woman, dark brown skin, short silver hair, green eyes, long-sleeved navy wool coat over a cream cotton dress, standing with hands in coat pockets, three-quarter camera view, quiet city cafe interior, rainy window behind her, soft overcast window light",
+      "screen": true
+    },
+    {
+      "id": "adult_man",
+      "group": "content_leakage",
+      "text": "1boy, solo, adult man, short black hair, brown eyes, neatly trimmed beard, broad shoulders, fully clothed in a matte blue cotton suit and white shirt, standing with arms folded, eye-level camera, office lobby with glass windows, neutral daylight",
+      "screen": true
+    },
+    {
+      "id": "adult_woman",
+      "group": "content_leakage",
+      "text": "1girl, solo, adult woman, short black hair, brown eyes, fully clothed in a matte blue cotton suit and white shirt, standing with arms folded, eye-level camera, office lobby with glass windows, neutral daylight",
+      "screen": true
+    },
+    {
+      "id": "material_matte_cotton",
+      "group": "content_leakage",
+      "text": "1girl, solo, adult woman, shoulder-length chestnut hair, green eyes, fully clothed in an opaque matte cotton long-sleeved shirt and straight-leg denim trousers, standing with arms relaxed, full-body eye-level camera, plain studio background, even neutral lighting",
+      "screen": true
+    },
+    {
+      "id": "material_shiny_latex",
+      "group": "content_leakage",
+      "text": "1girl, solo, adult woman, shoulder-length chestnut hair, green eyes, fully clothed in an opaque shiny black latex long-sleeved suit and straight-leg trousers, standing with arms relaxed, full-body eye-level camera, plain studio background, even neutral lighting",
+      "screen": true
+    },
+    {
+      "id": "lighting_flat_day",
+      "group": "content_leakage",
+      "text": "1girl, solo, adult woman, long brown hair, blue eyes, fully clothed in a matte beige linen dress, walking on a garden path, eye-level full-body camera, bright outdoor midday, flat diffuse daylight, no dramatic shadows",
+      "screen": true
+    },
+    {
+      "id": "lighting_dramatic_night",
+      "group": "content_leakage",
+      "text": "1girl, solo, adult woman, long brown hair, blue eyes, fully clothed in a matte beige linen dress, standing in a quiet interior, eye-level full-body camera, dark room at night, dramatic side light, strong rim light and deep shadows",
+      "screen": true
+    },
+    {
+      "id": "solo_character",
+      "group": "content_leakage",
+      "text": "1girl, solo, adult woman, short auburn hair, gray eyes, fully clothed in a green jacket and black trousers, standing face to face with the viewer, full-body camera, simple train station platform, neutral daylight",
+      "screen": true
+    },
+    {
+      "id": "two_characters",
+      "group": "content_leakage",
+      "text": "2girls, two adult women, one with short auburn hair and one with long blonde hair, both fully clothed, one wearing a green jacket and black trousers and the other a red jacket and gray trousers, standing face to face, full-body camera, simple train station platform, neutral daylight",
+      "screen": true
+    },
+    {
+      "id": "bodytype_plus_size",
+      "group": "content_leakage",
+      "text": "1girl, solo, plus-size adult woman, short pink hair, brown eyes, fully clothed in a loose white cotton shirt and dark trousers, seated upright on a wooden bench, side three-quarter camera view, plain indoor studio, even soft light",
+      "screen": true
+    },
+    {
+      "id": "vague_outdoor",
+      "group": "vague",
+      "text": "1girl, solo, walking outdoors",
+      "screen": true
+    },
+    {
+      "id": "late_after_75",
+      "group": "extended_inference",
+      "text": "1girl, solo, adult woman, portrait, waist-up, centered composition, looking at viewer, calm expression, oval face, small nose, closed mouth, long dark hair, loose strands, brown eyes, clear eyelashes, pale skin, subtle blush, simple hair clip, head turned slightly, shoulders angled, hands visible, natural anatomy, relaxed posture, soft focus, fine lineart, delicate shading, detailed face, muted color palette, balanced composition, garden background, leaves, flowers, stone path, afternoon light, depth of field, high detail, clean outline, smooth color transitions, no motion blur, accurate proportions, wearing a bright yellow raincoat and purple scarf, holding a red umbrella beside a white bicycle",
+      "late_markers": [
+        "wearing a bright yellow raincoat and purple scarf"
+      ],
+      "base_control": true,
+      "screen": true
+    },
+    {
+      "id": "late_after_150",
+      "group": "extended_inference",
+      "text": "1girl, solo, adult woman, full body, centered, looking toward viewer, calm expression, oval face, small nose, closed mouth, long dark brown hair, loose strands, amber eyes, eyelashes, pale skin, blush, flower hair ornament, head turned slightly, shoulders angled, hands visible, natural anatomy, relaxed upright posture, slender build, detailed face, soft eye highlights, gentle smile, clean fine lineart, delicate shading, smooth gradients, muted colors, balanced composition, spring garden, stone path, green leaves, cherry trees, wooden fence, blue sky, soft clouds, afternoon daylight, diffuse light, soft shadows, depth of field, full scene, waist and legs visible, skirt pleats, fabric folds, natural cloth texture, hair moving in breeze, petals in air, clear silhouette, medium camera distance, eye-level camera, three-quarter view, quiet atmosphere, accurate proportions, detailed background, wearing a deep green velvet coat with gold buttons and carrying a folded paper fan in her left hand",
+      "late_markers": [
+        "wearing a deep green velvet coat with gold buttons and carrying a folded paper fan in her left hand"
+      ],
+      "base_control": true,
+      "screen": true
+    }
+  ]
+}

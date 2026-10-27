@@ -1,0 +1,39 @@
+{
+  "stage": "progression",
+  "planned_paired_images": 192,
+  "images_generated": 192,
+  "base_controls": 0,
+  "seeds": [
+    42,
+    123,
+    456,
+    789
+  ],
+  "strengths": [
+    1.0,
+    1.5,
+    2.0
+  ],
+  "checkpoint_steps": [
+    1199,
+    2399,
+    3199,
+    3999
+  ],
+  "prompts": [
+    "P6",
+    "P7"
+  ],
+  "prompt_token_counts": {
+    "P7": [
+      22,
+      22
+    ],
+    "P6": [
+      50,
+      50
+    ]
+  },
+  "late_detail_token_positions": {},
+  "blinded_pair_count": 96
+}

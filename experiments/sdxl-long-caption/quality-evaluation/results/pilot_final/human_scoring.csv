@@ -1,0 +1,2 @@
+pair_id,prompt_id,prompt,seed,checkpoint_step,strength,A_image_id,B_image_id,A_prompt_compliance_1to5,B_prompt_compliance_1to5,A_style_fidelity_1to5,B_style_fidelity_1to5,A_anatomy_artifact_0to3,B_anatomy_artifact_0to3,A_unwanted_prior_0to3,B_unwanted_prior_0to3,pair_style_preference_A_B_tie,notes
+pair_0001,P6,"1girl, solo, orange hair, glasses, white camisole, sitting on a black leather sofa, indoors, living room, looking at viewer, crossed legs, soft lighting",42,3999,1.0,img_724366a108,img_e86a9d4f99,,,,,,,,,,

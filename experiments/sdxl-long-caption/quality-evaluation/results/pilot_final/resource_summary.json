@@ -1,0 +1,121 @@
+{
+  "stage": "pilot",
+  "record_count": 2,
+  "paired_lora_comparison_count": 1,
+  "unpaired_treatment_records": 0,
+  "base_model_control_count": 0,
+  "base_checkpoint": "D:\\ComfyUI\\ComfyUI\\ComfyUI\\models\\checkpoints\\illustriousXL_v01.safetensors",
+  "base_checkpoint_sha256": "3e15ba00387db678ab4a099f75771c4f5ac67fda9e7100a01d263eaf30145aa9",
+  "checkpoint_file_inventory": [
+    {
+      "path": "D:\\ComfyUI\\ComfyUI\\ComfyUI\\models\\loras\\lora_manager\\alt_test_after_225\\alt_test_after_225-03999.safetensors",
+      "size_bytes": 181198860,
+      "mtime_ns": 1793057283403646600,
+      "sha256": "9c8a171d224dd7216888ef074544c763329b81a575b4c6cd6397724b772a1847"
+    },
+    {
+      "path": "D:\\ComfyUI\\ComfyUI\\ComfyUI\\models\\loras\\lora_manager\\alt_test_after_75\\alt_test_after_75-03999.safetensors",
+      "size_bytes": 181198860,
+      "mtime_ns": 1793049306659591200,
+      "sha256": "88c7dc306d924d17fee4606f184419bf3d573311f083385abacd9076c52a589f"
+    }
+  ],
+  "per_run_resource_summary": {
+    "after_75": {
+      "image_count": 1,
+      "generation_seconds": {
+        "n": 1,
+        "mean": 38.923126100002264,
+        "median": 38.923126100002264,
+        "p10": 38.923126100002264,
+        "p90": 38.923126100002264,
+        "min": 38.923126100002264,
+        "max": 38.923126100002264
+      },
+      "peak_cuda_allocated_mib": {
+        "n": 1,
+        "mean": 5963.9375,
+        "median": 5963.9375,
+        "p10": 5963.9375,
+        "p90": 5963.9375,
+        "min": 5963.9375,
+        "max": 5963.9375
+      },
+      "peak_cuda_reserved_mib": {
+        "n": 1,
+        "mean": 6502.0,
+        "median": 6502.0,
+        "p10": 6502.0,
+        "p90": 6502.0,
+        "min": 6502.0,
+        "max": 6502.0
+      }
+    },
+    "after_225": {
+      "image_count": 1,
+      "generation_seconds": {
+        "n": 1,
+        "mean": 38.367430700000114,
+        "median": 38.367430700000114,
+        "p10": 38.367430700000114,
+        "p90": 38.367430700000114,
+        "min": 38.367430700000114,
+        "max": 38.367430700000114
+      },
+      "peak_cuda_allocated_mib": {
+        "n": 1,
+        "mean": 5962.3828125,
+        "median": 5962.3828125,
+        "p10": 5962.3828125,
+        "p90": 5962.3828125,
+        "min": 5962.3828125,
+        "max": 5962.3828125
+      },
+      "peak_cuda_reserved_mib": {
+        "n": 1,
+        "mean": 6502.0,
+        "median": 6502.0,
+        "p10": 6502.0,
+        "p90": 6502.0,
+        "min": 6502.0,
+        "max": 6502.0
+      }
+    }
+  },
+  "paired_resource_deltas": {
+    "after_225_minus_after_75_generation_seconds": {
+      "n": 1,
+      "mean": -0.5556954000021506,
+      "median": -0.5556954000021506,
+      "p10": -0.5556954000021506,
+      "p90": -0.5556954000021506,
+      "min": -0.5556954000021506,
+      "max": -0.5556954000021506
+    },
+    "after_225_minus_after_75_peak_allocated_mib": {
+      "n": 1,
+      "mean": -1.5546875,
+      "median": -1.5546875,
+      "p10": -1.5546875,
+      "p90": -1.5546875,
+      "min": -1.5546875,
+      "max": -1.5546875
+    },
+    "by_strength": {
+      "1.0": [
+        {
+          "prompt_id": "P6",
+          "checkpoint_step": 3999,
+          "seed": 42,
+          "after_225_minus_after_75_seconds": -0.5556954000021506,
+          "after_225_minus_after_75_peak_allocated_mib": -1.5546875
+        }
+      ]
+    },
+    "generation_order_counts": {
+      "after_75_first": 1,
+      "after_225_first": 0
+    }
+  },
+  "interpretation": "Resource measurements describe this inference harness at fixed 225-token capacity. They do not measure training throughput, training peak memory, or caption-cache preparation. Generation order is not randomized, so small timing differences should not be treated as causal."
+}

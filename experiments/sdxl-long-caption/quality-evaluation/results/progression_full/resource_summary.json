@@ -1,0 +1,826 @@
+{
+  "stage": "progression",
+  "record_count": 192,
+  "paired_lora_comparison_count": 96,
+  "unpaired_treatment_records": 0,
+  "base_model_control_count": 0,
+  "base_checkpoint": "D:\\ComfyUI\\ComfyUI\\ComfyUI\\models\\checkpoints\\illustriousXL_v01.safetensors",
+  "base_checkpoint_sha256": "3e15ba00387db678ab4a099f75771c4f5ac67fda9e7100a01d263eaf30145aa9",
+  "checkpoint_file_inventory": [
+    {
+      "path": "D:\\ComfyUI\\ComfyUI\\ComfyUI\\models\\loras\\lora_manager\\alt_test_after_225\\alt_test_after_225-01199.safetensors",
+      "size_bytes": 181198860,
+      "mtime_ns": 1793036299884061600,
+      "sha256": "a6c4ec8534146d977076f88e2d174a84922c7c1ee560501c5bfb27a5a022d876"
+    },
+    {
+      "path": "D:\\ComfyUI\\ComfyUI\\ComfyUI\\models\\loras\\lora_manager\\alt_test_after_225\\alt_test_after_225-02399.safetensors",
+      "size_bytes": 181198860,
+      "mtime_ns": 1793053231924259200,
+      "sha256": "801dc3771c5ae72dab16b14d39e5f0dca90ef79cc0eb59e5a56a14a99f689ff4"
+    },
+    {
+      "path": "D:\\ComfyUI\\ComfyUI\\ComfyUI\\models\\loras\\lora_manager\\alt_test_after_225\\alt_test_after_225-03199.safetensors",
+      "size_bytes": 181198860,
+      "mtime_ns": 1793055264596725100,
+      "sha256": "58f867e8e1006dd2443c7a26caaa9026f0957d9c954b0ccbfefae41ad725d680"
+    },
+    {
+      "path": "D:\\ComfyUI\\ComfyUI\\ComfyUI\\models\\loras\\lora_manager\\alt_test_after_225\\alt_test_after_225-03999.safetensors",
+      "size_bytes": 181198860,
+      "mtime_ns": 1793057283403646600,
+      "sha256": "9c8a171d224dd7216888ef074544c763329b81a575b4c6cd6397724b772a1847"
+    },
+    {
+      "path": "D:\\ComfyUI\\ComfyUI\\ComfyUI\\models\\loras\\lora_manager\\alt_test_after_75\\alt_test_after_75-01199.safetensors",
+      "size_bytes": 181198860,
+      "mtime_ns": 1793031951917360800,
+      "sha256": "474a896f48ada2f8f6addb6ab8282dc1fd9d92e223888c13961b591cc718f781"
+    },
+    {
+      "path": "D:\\ComfyUI\\ComfyUI\\ComfyUI\\models\\loras\\lora_manager\\alt_test_after_75\\alt_test_after_75-02399.safetensors",
+      "size_bytes": 181198860,
+      "mtime_ns": 1793045237818951100,
+      "sha256": "d7aa5369f56dd6199378c54673b423bec59b642943c478ebdda3adab454715bf"
+    },
+    {
+      "path": "D:\\ComfyUI\\ComfyUI\\ComfyUI\\models\\loras\\lora_manager\\alt_test_after_75\\alt_test_after_75-03199.safetensors",
+      "size_bytes": 181198860,
+      "mtime_ns": 1793047276483674300,
+      "sha256": "15a8986432effefec00892770cb5de1ecb224a84a063117f305ab91d47fc6e16"
+    },
+    {
+      "path": "D:\\ComfyUI\\ComfyUI\\ComfyUI\\models\\loras\\lora_manager\\alt_test_after_75\\alt_test_after_75-03999.safetensors",
+      "size_bytes": 181198860,
+      "mtime_ns": 1793049306659591200,
+      "sha256": "88c7dc306d924d17fee4606f184419bf3d573311f083385abacd9076c52a589f"
+    }
+  ],
+  "per_run_resource_summary": {
+    "after_75": {
+      "image_count": 96,
+      "generation_seconds": {
+        "n": 96,
+        "mean": 30.471636844792176,
+        "median": 30.446265050002694,
+        "p10": 30.172646999999415,
+        "p90": 30.675787799998943,
+        "min": 30.048906500000157,
+        "max": 33.935293899994576
+      },
+      "peak_cuda_allocated_mib": {
+        "n": 96,
+        "mean": 5962.399007161458,
+        "median": 5962.3828125,
+        "p10": 5962.3828125,
+        "p90": 5962.3828125,
+        "min": 5962.3828125,
+        "max": 5963.9375
+      },
+      "peak_cuda_reserved_mib": {
+        "n": 96,
+        "mean": 6502.0,
+        "median": 6502.0,
+        "p10": 6502.0,
+        "p90": 6502.0,
+        "min": 6502.0,
+        "max": 6502.0
+      }
+    },
+    "after_225": {
+      "image_count": 96,
+      "generation_seconds": {
+        "n": 96,
+        "mean": 34.897073318750245,
+        "median": 35.645918650003296,
+        "p10": 30.422733899999002,
+        "p90": 37.33441599999787,
+        "min": 30.307512999999744,
+        "max": 43.43440339999506
+      },
+      "peak_cuda_allocated_mib": {
+        "n": 96,
+        "mean": 5962.399007161458,
+        "median": 5962.3828125,
+        "p10": 5962.3828125,
+        "p90": 5962.3828125,
+        "min": 5962.3828125,
+        "max": 5963.9375
+      },
+      "peak_cuda_reserved_mib": {
+        "n": 96,
+        "mean": 6502.0,
+        "median": 6502.0,
+        "p10": 6502.0,
+        "p90": 6502.0,
+        "min": 6502.0,
+        "max": 6502.0
+      }
+    }
+  },
+  "paired_resource_deltas": {
+    "after_225_minus_after_75_generation_seconds": {
+      "n": 96,
+      "mean": 4.425436473958068,
+      "median": 5.195973400004732,
+      "p10": -0.07497280000097817,
+      "p90": 6.766596699992078,
+      "min": -3.175409599993145,
+      "max": 12.885895299994445
+    },
+    "after_225_minus_after_75_peak_allocated_mib": {
+      "n": 96,
+      "mean": 0.0,
+      "median": 0.0,
+      "p10": 0.0,
+      "p90": 0.0,
+      "min": -1.5546875,
+      "max": 1.5546875
+    },
+    "by_strength": {
+      "1.0": [
+        {
+          "prompt_id": "P6",
+          "checkpoint_step": 1199,
+          "seed": 42,
+          "after_225_minus_after_75_seconds": -3.175409599993145,
+          "after_225_minus_after_75_peak_allocated_mib": -1.5546875
+        },
+        {
+          "prompt_id": "P6",
+          "checkpoint_step": 1199,
+          "seed": 123,
+          "after_225_minus_after_75_seconds": -0.1315549999999348,
+          "after_225_minus_after_75_peak_allocated_mib": 0.0
+        },
+        {
+          "prompt_id": "P6",
+          "checkpoint_step": 1199,
+          "seed": 456,
+          "after_225_minus_after_75_seconds": -0.11765509999531787,
+          "after_225_minus_after_75_peak_allocated_mib": 0.0
+        },
+        {
+          "prompt_id": "P6",
+          "checkpoint_step": 1199,
+          "seed": 789,
+          "after_225_minus_after_75_seconds": -0.1720389000038267,
+          "after_225_minus_after_75_peak_allocated_mib": 0.0
+        },
+        {
+          "prompt_id": "P7",
+          "checkpoint_step": 1199,
+          "seed": 42,
+          "after_225_minus_after_75_seconds": -0.18001569998887135,
+          "after_225_minus_after_75_peak_allocated_mib": 0.0
+        },
+        {
+          "prompt_id": "P7",
+          "checkpoint_step": 1199,
+          "seed": 123,
+          "after_225_minus_after_75_seconds": -0.07497280000097817,
+          "after_225_minus_after_75_peak_allocated_mib": 0.0
+        },
+        {
+          "prompt_id": "P7",
+          "checkpoint_step": 1199,
+          "seed": 456,
+          "after_225_minus_after_75_seconds": -0.2856644999992568,
+          "after_225_minus_after_75_peak_allocated_mib": 0.0
+        },
+        {
+          "prompt_id": "P7",
+          "checkpoint_step": 1199,
+          "seed": 789,
+          "after_225_minus_after_75_seconds": -0.09063460000470513,
+          "after_225_minus_after_75_peak_allocated_mib": 0.0
+        },
+        {
+          "prompt_id": "P6",
+          "checkpoint_step": 2399,
+          "seed": 42,
+          "after_225_minus_after_75_seconds": 4.8840250999928685,
+          "after_225_minus_after_75_peak_allocated_mib": 0.0
+        },
+        {
+          "prompt_id": "P6",
+          "checkpoint_step": 2399,
+          "seed": 123,
+          "after_225_minus_after_75_seconds": 4.46767529999488,
+          "after_225_minus_after_75_peak_allocated_mib": 0.0
+        },
+        {
+          "prompt_id": "P6",
+          "checkpoint_step": 2399,
+          "seed": 456,
+          "after_225_minus_after_75_seconds": 5.488015599999926,
+          "after_225_minus_after_75_peak_allocated_mib": 0.0
+        },
+        {
+          "prompt_id": "P6",
+          "checkpoint_step": 2399,
+          "seed": 789,
+          "after_225_minus_after_75_seconds": 4.561485300000641,
+          "after_225_minus_after_75_peak_allocated_mib": 0.0
+        },
+        {
+          "prompt_id": "P7",
+          "checkpoint_step": 2399,
+          "seed": 42,
+          "after_225_minus_after_75_seconds": 4.6842777999991085,
+          "after_225_minus_after_75_peak_allocated_mib": 0.0
+        },
+        {
+          "prompt_id": "P7",
+          "checkpoint_step": 2399,
+          "seed": 123,
+          "after_225_minus_after_75_seconds": 5.470417999997153,
+          "after_225_minus_after_75_peak_allocated_mib": 0.0
+        },
+        {
+          "prompt_id": "P7",
+          "checkpoint_step": 2399,
+          "seed": 456,
+          "after_225_minus_after_75_seconds": 4.806080199996359,
+          "after_225_minus_after_75_peak_allocated_mib": 0.0
+        },
+        {
+          "prompt_id": "P7",
+          "checkpoint_step": 2399,
+          "seed": 789,
+          "after_225_minus_after_75_seconds": 5.302746000001207,
+          "after_225_minus_after_75_peak_allocated_mib": 0.0
+        },
+        {
+          "prompt_id": "P6",
+          "checkpoint_step": 3199,
+          "seed": 42,
+          "after_225_minus_after_75_seconds": 4.903026300002239,
+          "after_225_minus_after_75_peak_allocated_mib": 0.0
+        },
+        {
+          "prompt_id": "P6",
+          "checkpoint_step": 3199,
+          "seed": 123,
+          "after_225_minus_after_75_seconds": 4.730067599994072,
+          "after_225_minus_after_75_peak_allocated_mib": 0.0
+        },
+        {
+          "prompt_id": "P6",
+          "checkpoint_step": 3199,
+          "seed": 456,
+          "after_225_minus_after_75_seconds": 4.9822495999978855,
+          "after_225_minus_after_75_peak_allocated_mib": 0.0
+        },
+        {
+          "prompt_id": "P6",
+          "checkpoint_step": 3199,
+          "seed": 789,
+          "after_225_minus_after_75_seconds": 4.5904067999945255,
+          "after_225_minus_after_75_peak_allocated_mib": 0.0
+        },
+        {
+          "prompt_id": "P7",
+          "checkpoint_step": 3199,
+          "seed": 42,
+          "after_225_minus_after_75_seconds": 4.797075499991479,
+          "after_225_minus_after_75_peak_allocated_mib": 0.0
+        },
+        {
+          "prompt_id": "P7",
+          "checkpoint_step": 3199,
+          "seed": 123,
+          "after_225_minus_after_75_seconds": 5.447283799992874,
+          "after_225_minus_after_75_peak_allocated_mib": 0.0
+        },
+        {
+          "prompt_id": "P7",
+          "checkpoint_step": 3199,
+          "seed": 456,
+          "after_225_minus_after_75_seconds": 4.994817400001921,
+          "after_225_minus_after_75_peak_allocated_mib": 0.0
+        },
+        {
+          "prompt_id": "P7",
+          "checkpoint_step": 3199,
+          "seed": 789,
+          "after_225_minus_after_75_seconds": 5.224554399996123,
+          "after_225_minus_after_75_peak_allocated_mib": 0.0
+        },
+        {
+          "prompt_id": "P6",
+          "checkpoint_step": 3999,
+          "seed": 42,
+          "after_225_minus_after_75_seconds": 6.7341273999991245,
+          "after_225_minus_after_75_peak_allocated_mib": 0.0
+        },
+        {
+          "prompt_id": "P6",
+          "checkpoint_step": 3999,
+          "seed": 123,
+          "after_225_minus_after_75_seconds": 9.519755500004976,
+          "after_225_minus_after_75_peak_allocated_mib": 0.0
+        },
+        {
+          "prompt_id": "P6",
+          "checkpoint_step": 3999,
+          "seed": 456,
+          "after_225_minus_after_75_seconds": 6.418313399997714,
+          "after_225_minus_after_75_peak_allocated_mib": 0.0
+        },
+        {
+          "prompt_id": "P6",
+          "checkpoint_step": 3999,
+          "seed": 789,
+          "after_225_minus_after_75_seconds": 5.221473100005824,
+          "after_225_minus_after_75_peak_allocated_mib": 0.0
+        },
+        {
+          "prompt_id": "P7",
+          "checkpoint_step": 3999,
+          "seed": 42,
+          "after_225_minus_after_75_seconds": 6.478237399998761,
+          "after_225_minus_after_75_peak_allocated_mib": 0.0
+        },
+        {
+          "prompt_id": "P7",
+          "checkpoint_step": 3999,
+          "seed": 123,
+          "after_225_minus_after_75_seconds": 5.522823699997389,
+          "after_225_minus_after_75_peak_allocated_mib": 0.0
+        },
+        {
+          "prompt_id": "P7",
+          "checkpoint_step": 3999,
+          "seed": 456,
+          "after_225_minus_after_75_seconds": 6.126565999999002,
+          "after_225_minus_after_75_peak_allocated_mib": 0.0
+        },
+        {
+          "prompt_id": "P7",
+          "checkpoint_step": 3999,
+          "seed": 789,
+          "after_225_minus_after_75_seconds": 6.746965500002261,
+          "after_225_minus_after_75_peak_allocated_mib": 0.0
+        }
+      ],
+      "1.5": [
+        {
+          "prompt_id": "P6",
+          "checkpoint_step": 1199,
+          "seed": 42,
+          "after_225_minus_after_75_seconds": -0.02903439999499824,
+          "after_225_minus_after_75_peak_allocated_mib": 0.0
+        },
+        {
+          "prompt_id": "P6",
+          "checkpoint_step": 1199,
+          "seed": 123,
+          "after_225_minus_after_75_seconds": 0.3653820000035921,
+          "after_225_minus_after_75_peak_allocated_mib": 0.0
+        },
+        {
+          "prompt_id": "P6",
+          "checkpoint_step": 1199,
+          "seed": 456,
+          "after_225_minus_after_75_seconds": 0.10243389999959618,
+          "after_225_minus_after_75_peak_allocated_mib": 0.0
+        },
+        {
+          "prompt_id": "P6",
+          "checkpoint_step": 1199,
+          "seed": 789,
+          "after_225_minus_after_75_seconds": 0.18534139999974286,
+          "after_225_minus_after_75_peak_allocated_mib": 0.0
+        },
+        {
+          "prompt_id": "P7",
+          "checkpoint_step": 1199,
+          "seed": 42,
+          "after_225_minus_after_75_seconds": -0.04302279999683378,
+          "after_225_minus_after_75_peak_allocated_mib": 0.0
+        },
+        {
+          "prompt_id": "P7",
+          "checkpoint_step": 1199,
+          "seed": 123,
+          "after_225_minus_after_75_seconds": -0.2293437999978778,
+          "after_225_minus_after_75_peak_allocated_mib": 0.0
+        },
+        {
+          "prompt_id": "P7",
+          "checkpoint_step": 1199,
+          "seed": 456,
+          "after_225_minus_after_75_seconds": -0.07824909999908414,
+          "after_225_minus_after_75_peak_allocated_mib": 0.0
+        },
+        {
+          "prompt_id": "P7",
+          "checkpoint_step": 1199,
+          "seed": 789,
+          "after_225_minus_after_75_seconds": -0.12933200000406941,
+          "after_225_minus_after_75_peak_allocated_mib": 0.0
+        },
+        {
+          "prompt_id": "P6",
+          "checkpoint_step": 2399,
+          "seed": 42,
+          "after_225_minus_after_75_seconds": 4.583032499998808,
+          "after_225_minus_after_75_peak_allocated_mib": 0.0
+        },
+        {
+          "prompt_id": "P6",
+          "checkpoint_step": 2399,
+          "seed": 123,
+          "after_225_minus_after_75_seconds": 5.045806099995389,
+          "after_225_minus_after_75_peak_allocated_mib": 0.0
+        },
+        {
+          "prompt_id": "P6",
+          "checkpoint_step": 2399,
+          "seed": 456,
+          "after_225_minus_after_75_seconds": 6.197253600003023,
+          "after_225_minus_after_75_peak_allocated_mib": 0.0
+        },
+        {
+          "prompt_id": "P6",
+          "checkpoint_step": 2399,
+          "seed": 789,
+          "after_225_minus_after_75_seconds": 4.305126299994299,
+          "after_225_minus_after_75_peak_allocated_mib": 0.0
+        },
+        {
+          "prompt_id": "P7",
+          "checkpoint_step": 2399,
+          "seed": 42,
+          "after_225_minus_after_75_seconds": 5.549559299994144,
+          "after_225_minus_after_75_peak_allocated_mib": 0.0
+        },
+        {
+          "prompt_id": "P7",
+          "checkpoint_step": 2399,
+          "seed": 123,
+          "after_225_minus_after_75_seconds": 5.146895699996094,
+          "after_225_minus_after_75_peak_allocated_mib": 0.0
+        },
+        {
+          "prompt_id": "P7",
+          "checkpoint_step": 2399,
+          "seed": 456,
+          "after_225_minus_after_75_seconds": 5.12207440000202,
+          "after_225_minus_after_75_peak_allocated_mib": 0.0
+        },
+        {
+          "prompt_id": "P7",
+          "checkpoint_step": 2399,
+          "seed": 789,
+          "after_225_minus_after_75_seconds": 5.286857500002952,
+          "after_225_minus_after_75_peak_allocated_mib": 0.0
+        },
+        {
+          "prompt_id": "P6",
+          "checkpoint_step": 3199,
+          "seed": 42,
+          "after_225_minus_after_75_seconds": 6.0060558000113815,
+          "after_225_minus_after_75_peak_allocated_mib": 0.0
+        },
+        {
+          "prompt_id": "P6",
+          "checkpoint_step": 3199,
+          "seed": 123,
+          "after_225_minus_after_75_seconds": 5.448294699999678,
+          "after_225_minus_after_75_peak_allocated_mib": 0.0
+        },
+        {
+          "prompt_id": "P6",
+          "checkpoint_step": 3199,
+          "seed": 456,
+          "after_225_minus_after_75_seconds": 5.561689900001511,
+          "after_225_minus_after_75_peak_allocated_mib": 0.0
+        },
+        {
+          "prompt_id": "P6",
+          "checkpoint_step": 3199,
+          "seed": 789,
+          "after_225_minus_after_75_seconds": 5.69029330000194,
+          "after_225_minus_after_75_peak_allocated_mib": 0.0
+        },
+        {
+          "prompt_id": "P7",
+          "checkpoint_step": 3199,
+          "seed": 42,
+          "after_225_minus_after_75_seconds": 5.1282730999955675,
+          "after_225_minus_after_75_peak_allocated_mib": 0.0
+        },
+        {
+          "prompt_id": "P7",
+          "checkpoint_step": 3199,
+          "seed": 123,
+          "after_225_minus_after_75_seconds": 7.215198600002623,
+          "after_225_minus_after_75_peak_allocated_mib": 0.0
+        },
+        {
+          "prompt_id": "P7",
+          "checkpoint_step": 3199,
+          "seed": 456,
+          "after_225_minus_after_75_seconds": 7.717437899998913,
+          "after_225_minus_after_75_peak_allocated_mib": 0.0
+        },
+        {
+          "prompt_id": "P7",
+          "checkpoint_step": 3199,
+          "seed": 789,
+          "after_225_minus_after_75_seconds": 8.490988099998503,
+          "after_225_minus_after_75_peak_allocated_mib": 0.0
+        },
+        {
+          "prompt_id": "P6",
+          "checkpoint_step": 3999,
+          "seed": 42,
+          "after_225_minus_after_75_seconds": 6.766596699992078,
+          "after_225_minus_after_75_peak_allocated_mib": 0.0
+        },
+        {
+          "prompt_id": "P6",
+          "checkpoint_step": 3999,
+          "seed": 123,
+          "after_225_minus_after_75_seconds": 8.925620599999093,
+          "after_225_minus_after_75_peak_allocated_mib": 0.0
+        },
+        {
+          "prompt_id": "P6",
+          "checkpoint_step": 3999,
+          "seed": 456,
+          "after_225_minus_after_75_seconds": 12.885895299994445,
+          "after_225_minus_after_75_peak_allocated_mib": 0.0
+        },
+        {
+          "prompt_id": "P6",
+          "checkpoint_step": 3999,
+          "seed": 789,
+          "after_225_minus_after_75_seconds": 5.3703988999914145,
+          "after_225_minus_after_75_peak_allocated_mib": 0.0
+        },
+        {
+          "prompt_id": "P7",
+          "checkpoint_step": 3999,
+          "seed": 42,
+          "after_225_minus_after_75_seconds": 6.270234299998265,
+          "after_225_minus_after_75_peak_allocated_mib": 0.0
+        },
+        {
+          "prompt_id": "P7",
+          "checkpoint_step": 3999,
+          "seed": 123,
+          "after_225_minus_after_75_seconds": 5.9727843000000576,
+          "after_225_minus_after_75_peak_allocated_mib": 0.0
+        },
+        {
+          "prompt_id": "P7",
+          "checkpoint_step": 3999,
+          "seed": 456,
+          "after_225_minus_after_75_seconds": 5.502661200000148,
+          "after_225_minus_after_75_peak_allocated_mib": 0.0
+        },
+        {
+          "prompt_id": "P7",
+          "checkpoint_step": 3999,
+          "seed": 789,
+          "after_225_minus_after_75_seconds": 5.946889200000442,
+          "after_225_minus_after_75_peak_allocated_mib": 0.0
+        }
+      ],
+      "2.0": [
+        {
+          "prompt_id": "P6",
+          "checkpoint_step": 1199,
+          "seed": 42,
+          "after_225_minus_after_75_seconds": 0.22502260000328533,
+          "after_225_minus_after_75_peak_allocated_mib": 0.0
+        },
+        {
+          "prompt_id": "P6",
+          "checkpoint_step": 1199,
+          "seed": 123,
+          "after_225_minus_after_75_seconds": 0.15612539999710862,
+          "after_225_minus_after_75_peak_allocated_mib": 0.0
+        },
+        {
+          "prompt_id": "P6",
+          "checkpoint_step": 1199,
+          "seed": 456,
+          "after_225_minus_after_75_seconds": 0.17717130000528414,
+          "after_225_minus_after_75_peak_allocated_mib": 0.0
+        },
+        {
+          "prompt_id": "P6",
+          "checkpoint_step": 1199,
+          "seed": 789,
+          "after_225_minus_after_75_seconds": 0.1455028999989736,
+          "after_225_minus_after_75_peak_allocated_mib": 0.0
+        },
+        {
+          "prompt_id": "P7",
+          "checkpoint_step": 1199,
+          "seed": 42,
+          "after_225_minus_after_75_seconds": 0.32624110000324436,
+          "after_225_minus_after_75_peak_allocated_mib": 0.0
+        },
+        {
+          "prompt_id": "P7",
+          "checkpoint_step": 1199,
+          "seed": 123,
+          "after_225_minus_after_75_seconds": 0.33068520000961144,
+          "after_225_minus_after_75_peak_allocated_mib": 0.0
+        },
+        {
+          "prompt_id": "P7",
+          "checkpoint_step": 1199,
+          "seed": 456,
+          "after_225_minus_after_75_seconds": 2.225898299999244,
+          "after_225_minus_after_75_peak_allocated_mib": 0.0
+        },
+        {
+          "prompt_id": "P7",
+          "checkpoint_step": 1199,
+          "seed": 789,
+          "after_225_minus_after_75_seconds": 4.979635699994105,
+          "after_225_minus_after_75_peak_allocated_mib": 0.0
+        },
+        {
+          "prompt_id": "P6",
+          "checkpoint_step": 2399,
+          "seed": 42,
+          "after_225_minus_after_75_seconds": 5.714274400001159,
+          "after_225_minus_after_75_peak_allocated_mib": 0.0
+        },
+        {
+          "prompt_id": "P6",
+          "checkpoint_step": 2399,
+          "seed": 123,
+          "after_225_minus_after_75_seconds": 5.311620699991181,
+          "after_225_minus_after_75_peak_allocated_mib": 0.0
+        },
+        {
+          "prompt_id": "P6",
+          "checkpoint_step": 2399,
+          "seed": 456,
+          "after_225_minus_after_75_seconds": 7.043508599992492,
+          "after_225_minus_after_75_peak_allocated_mib": 0.0
+        },
+        {
+          "prompt_id": "P6",
+          "checkpoint_step": 2399,
+          "seed": 789,
+          "after_225_minus_after_75_seconds": 7.211977099999785,
+          "after_225_minus_after_75_peak_allocated_mib": 0.0
+        },
+        {
+          "prompt_id": "P7",
+          "checkpoint_step": 2399,
+          "seed": 42,
+          "after_225_minus_after_75_seconds": 5.353648500000418,
+          "after_225_minus_after_75_peak_allocated_mib": 0.0
+        },
+        {
+          "prompt_id": "P7",
+          "checkpoint_step": 2399,
+          "seed": 123,
+          "after_225_minus_after_75_seconds": 4.532866100002138,
+          "after_225_minus_after_75_peak_allocated_mib": 0.0
+        },
+        {
+          "prompt_id": "P7",
+          "checkpoint_step": 2399,
+          "seed": 456,
+          "after_225_minus_after_75_seconds": 4.801542600005632,
+          "after_225_minus_after_75_peak_allocated_mib": 0.0
+        },
+        {
+          "prompt_id": "P7",
+          "checkpoint_step": 2399,
+          "seed": 789,
+          "after_225_minus_after_75_seconds": 4.501607899997907,
+          "after_225_minus_after_75_peak_allocated_mib": 0.0
+        },
+        {
+          "prompt_id": "P6",
+          "checkpoint_step": 3199,
+          "seed": 42,
+          "after_225_minus_after_75_seconds": 6.54149709999183,
+          "after_225_minus_after_75_peak_allocated_mib": 0.0
+        },
+        {
+          "prompt_id": "P6",
+          "checkpoint_step": 3199,
+          "seed": 123,
+          "after_225_minus_after_75_seconds": 6.5530359000040335,
+          "after_225_minus_after_75_peak_allocated_mib": 0.0
+        },
+        {
+          "prompt_id": "P6",
+          "checkpoint_step": 3199,
+          "seed": 456,
+          "after_225_minus_after_75_seconds": 5.785482500003127,
+          "after_225_minus_after_75_peak_allocated_mib": 0.0
+        },
+        {
+          "prompt_id": "P6",
+          "checkpoint_step": 3199,
+          "seed": 789,
+          "after_225_minus_after_75_seconds": 5.367204900001525,
+          "after_225_minus_after_75_peak_allocated_mib": 0.0
+        },
+        {
+          "prompt_id": "P7",
+          "checkpoint_step": 3199,
+          "seed": 42,
+          "after_225_minus_after_75_seconds": 9.118841399998928,
+          "after_225_minus_after_75_peak_allocated_mib": 1.5546875
+        },
+        {
+          "prompt_id": "P7",
+          "checkpoint_step": 3199,
+          "seed": 123,
+          "after_225_minus_after_75_seconds": 5.6313414000032935,
+          "after_225_minus_after_75_peak_allocated_mib": 0.0
+        },
+        {
+          "prompt_id": "P7",
+          "checkpoint_step": 3199,
+          "seed": 456,
+          "after_225_minus_after_75_seconds": 5.584744400002819,
+          "after_225_minus_after_75_peak_allocated_mib": 0.0
+        },
+        {
+          "prompt_id": "P7",
+          "checkpoint_step": 3199,
+          "seed": 789,
+          "after_225_minus_after_75_seconds": 6.354120299998613,
+          "after_225_minus_after_75_peak_allocated_mib": 0.0
+        },
+        {
+          "prompt_id": "P6",
+          "checkpoint_step": 3999,
+          "seed": 42,
+          "after_225_minus_after_75_seconds": 5.067052300000796,
+          "after_225_minus_after_75_peak_allocated_mib": 0.0
+        },
+        {
+          "prompt_id": "P6",
+          "checkpoint_step": 3999,
+          "seed": 123,
+          "after_225_minus_after_75_seconds": 5.733619799997541,
+          "after_225_minus_after_75_peak_allocated_mib": 0.0
+        },
+        {
+          "prompt_id": "P6",
+          "checkpoint_step": 3999,
+          "seed": 456,
+          "after_225_minus_after_75_seconds": 5.0866468000022,
+          "after_225_minus_after_75_peak_allocated_mib": 0.0
+        },
+        {
+          "prompt_id": "P6",
+          "checkpoint_step": 3999,
+          "seed": 789,
+          "after_225_minus_after_75_seconds": 5.362546999996994,
+          "after_225_minus_after_75_peak_allocated_mib": 0.0
+        },
+        {
+          "prompt_id": "P7",
+          "checkpoint_step": 3999,
+          "seed": 42,
+          "after_225_minus_after_75_seconds": 4.732110800003284,
+          "after_225_minus_after_75_peak_allocated_mib": 0.0
+        },
+        {
+          "prompt_id": "P7",
+          "checkpoint_step": 3999,
+          "seed": 123,
+          "after_225_minus_after_75_seconds": 5.17047370000364,
+          "after_225_minus_after_75_peak_allocated_mib": 0.0
+        },
+        {
+          "prompt_id": "P7",
+          "checkpoint_step": 3999,
+          "seed": 456,
+          "after_225_minus_after_75_seconds": 5.900528600002872,
+          "after_225_minus_after_75_peak_allocated_mib": 0.0
+        },
+        {
+          "prompt_id": "P7",
+          "checkpoint_step": 3999,
+          "seed": 789,
+          "after_225_minus_after_75_seconds": 5.660713200006285,
+          "after_225_minus_after_75_peak_allocated_mib": 0.0
+        }
+      ]
+    },
+    "generation_order_counts": {
+      "after_75_first": 96,
+      "after_225_first": 0
+    }
+  },
+  "interpretation": "Resource measurements describe this inference harness at fixed 225-token capacity. They do not measure training throughput, training peak memory, or caption-cache preparation. Generation order is not randomized, so small timing differences should not be treated as causal."
+}

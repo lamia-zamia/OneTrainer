@@ -1,0 +1,26 @@
+{
+  "stage": "pilot",
+  "planned_paired_images": 2,
+  "images_generated": 2,
+  "base_controls": 0,
+  "seeds": [
+    42
+  ],
+  "strengths": [
+    1.0
+  ],
+  "checkpoint_steps": [
+    3999
+  ],
+  "prompts": [
+    "P6"
+  ],
+  "prompt_token_counts": {
+    "P6": [
+      50,
+      50
+    ]
+  },
+  "late_detail_token_positions": {},
+  "blinded_pair_count": 1
+}

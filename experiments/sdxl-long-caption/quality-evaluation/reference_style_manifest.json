@@ -1,0 +1,78 @@
+{
+  "seed": 20261027,
+  "caption_filter": "requires a clothing tag and excludes explicit, sexual, underwear, and age-risk tags",
+  "references": [
+    {
+      "reference_id": "Reference 01",
+      "source_file": "D:\\lora-datasets\\Projects\\alterkyon_new\\concepts\\test2\\__jia_xichun_project_moon_and_1_more_drawn_by_alterkyon__9ac6320c41ebeed0ddd5cd7636a8f5c3.png",
+      "sha256": "2fa24f67413acb4a3b7d5628cb37e880c8266b192dad9f272cc39a1c17cb26e8",
+      "source_size": [
+        832,
+        1280
+      ]
+    },
+    {
+      "reference_id": "Reference 02",
+      "source_file": "D:\\lora-datasets\\Projects\\alterkyon_new\\concepts\\test2\\__artoria_pendragon_and_mysterious_heroine_xx_fate_and_1_more_drawn_by_alterkyon__b561cbd2f60e2d75d73295d50bd355bc-crop-01.png",
+      "sha256": "19bad0c96ba812143279f0f611f289c961251a0d42af8a61cf743be741a5d733",
+      "source_size": [
+        1344,
+        768
+      ]
+    },
+    {
+      "reference_id": "Reference 03",
+      "source_file": "D:\\lora-datasets\\Projects\\alterkyon_new\\concepts\\test2\\__hatsune_miku_vocaloid_drawn_by_alterkyon__e562b43664c1725790043dbe89b71e37-crop-01.png",
+      "sha256": "8f5a6b074f98ea5c2aaabd1d81554916acc7b8f751e4fb66ae2f4f43a51b7b38",
+      "source_size": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "reference_id": "Reference 04",
+      "source_file": "D:\\lora-datasets\\Projects\\alterkyon_new\\concepts\\test2\\__nangong_yu_zenless_zone_zero_drawn_by_alterkyon__5d28d6203c6db5bd2f3db7248dd7d11e.png",
+      "sha256": "74143ee59aad095705b329ddfaaf588852f9cc1b37838f1cd25ca1bf05cee41a",
+      "source_size": [
+        896,
+        1152
+      ]
+    },
+    {
+      "reference_id": "Reference 05",
+      "source_file": "D:\\lora-datasets\\Projects\\alterkyon_new\\concepts\\test2\\__tadakuni_original_drawn_by_alterkyon__bc65ccc2a71347a4ade71d894daedd6c-crop-01.png",
+      "sha256": "35155c185cb9d3908f8f05b4e1ab4cc9a2a7f110a082fa37aba9663bdb061025",
+      "source_size": [
+        896,
+        1152
+      ]
+    },
+    {
+      "reference_id": "Reference 06",
+      "source_file": "D:\\lora-datasets\\Projects\\alterkyon_new\\concepts\\test2\\__tadakuni_and_ranka_original_and_1_more_drawn_by_alterkyon__21ca2c88936902a0931713f5d7a4f29f.png",
+      "sha256": "1144ced31ae2b7147493f07fcb17d702053d7477506039002cec03f45b9d8b7d",
+      "source_size": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "reference_id": "Reference 07",
+      "source_file": "D:\\lora-datasets\\Projects\\alterkyon_new\\concepts\\test2\\__felix_argyle_re_zero_kara_hajimeru_isekai_seikatsu_drawn_by_alterkyon__79f5427e8f5e7d285075181312a0e0bc-crop-01.png",
+      "sha256": "4324d5b604a50832f760221b57454214ae2bd869048b59e6fc9f297845c01b18",
+      "source_size": [
+        1152,
+        896
+      ]
+    },
+    {
+      "reference_id": "Reference 08",
+      "source_file": "D:\\lora-datasets\\Projects\\alterkyon_new\\concepts\\test2\\__omega_and_omega_f_zenless_zone_zero_and_1_more_drawn_by_alterkyon__8b4c420862866242f225815b28955f9d.png",
+      "sha256": "f2b5bfcf06e0acbe11bb13902ca30e01b487ea1af8a358ede91e098a3a658c15",
+      "source_size": [
+        1152,
+        896
+      ]
+    }
+  ]
+}

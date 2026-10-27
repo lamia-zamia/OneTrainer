@@ -1,0 +1,194 @@
+{
+  "tokenizers": {
+    "clip_l": {
+      "repo_id": "openai/clip-vit-large-patch14",
+      "commit": "32bd64288804d66eefd0ccbe215aa642df71cc41"
+    },
+    "clip_g": {
+      "repo_id": "laion/CLIP-ViT-bigG-14-laion2B-39B-b160k",
+      "commit": "743c27bd53dfe508a0ade0f50698f99b39d03bec"
+    }
+  },
+  "inference_capacity": 225,
+  "count_method": "Full positive prompt including style prefix; CLIPTokenizerFast; no special tokens; no truncation.",
+  "prompts": {
+    "P6": {
+      "group": "specified",
+      "prompt_text": "1girl, solo, orange hair, glasses, white camisole, sitting on a black leather sofa, indoors, living room, looking at viewer, crossed legs, soft lighting",
+      "positive_prompt": "masterpiece, best quality, amazing quality, very aesthetic, yoonalter, 1girl, solo, orange hair, glasses, white camisole, sitting on a black leather sofa, indoors, living room, looking at viewer, crossed legs, soft lighting",
+      "content_token_counts": {
+        "clip_l": 50,
+        "clip_g": 50
+      },
+      "late_markers": []
+    },
+    "P7": {
+      "group": "vague",
+      "prompt_text": "1girl, solo, sitting, indoors",
+      "positive_prompt": "masterpiece, best quality, amazing quality, very aesthetic, yoonalter, 1girl, solo, sitting, indoors",
+      "content_token_counts": {
+        "clip_l": 22,
+        "clip_g": 22
+      },
+      "late_markers": []
+    },
+    "specified_cafe": {
+      "group": "specified",
+      "prompt_text": "1girl, solo, adult woman, dark brown skin, short silver hair, green eyes, long-sleeved navy wool coat over a cream cotton dress, standing with hands in coat pockets, three-quarter camera view, quiet city cafe interior, rainy window behind her, soft overcast window light",
+      "positive_prompt": "masterpiece, best quality, amazing quality, very aesthetic, yoonalter, 1girl, solo, adult woman, dark brown skin, short silver hair, green eyes, long-sleeved navy wool coat over a cream cotton dress, standing with hands in coat pockets, three-quarter camera view, quiet city cafe interior, rainy window behind her, soft overcast window light",
+      "content_token_counts": {
+        "clip_l": 73,
+        "clip_g": 73
+      },
+      "late_markers": []
+    },
+    "adult_man": {
+      "group": "content_leakage",
+      "prompt_text": "1boy, solo, adult man, short black hair, brown eyes, neatly trimmed beard, broad shoulders, fully clothed in a matte blue cotton suit and white shirt, standing with arms folded, eye-level camera, office lobby with glass windows, neutral daylight",
+      "positive_prompt": "masterpiece, best quality, amazing quality, very aesthetic, yoonalter, 1boy, solo, adult man, short black hair, brown eyes, neatly trimmed beard, broad shoulders, fully clothed in a matte blue cotton suit and white shirt, standing with arms folded, eye-level camera, office lobby with glass windows, neutral daylight",
+      "content_token_counts": {
+        "clip_l": 68,
+        "clip_g": 68
+      },
+      "late_markers": []
+    },
+    "adult_woman": {
+      "group": "content_leakage",
+      "prompt_text": "1girl, solo, adult woman, short black hair, brown eyes, fully clothed in a matte blue cotton suit and white shirt, standing with arms folded, eye-level camera, office lobby with glass windows, neutral daylight",
+      "positive_prompt": "masterpiece, best quality, amazing quality, very aesthetic, yoonalter, 1girl, solo, adult woman, short black hair, brown eyes, fully clothed in a matte blue cotton suit and white shirt, standing with arms folded, eye-level camera, office lobby with glass windows, neutral daylight",
+      "content_token_counts": {
+        "clip_l": 60,
+        "clip_g": 60
+      },
+      "late_markers": []
+    },
+    "material_matte_cotton": {
+      "group": "content_leakage",
+      "prompt_text": "1girl, solo, adult woman, shoulder-length chestnut hair, green eyes, fully clothed in an opaque matte cotton long-sleeved shirt and straight-leg denim trousers, standing with arms relaxed, full-body eye-level camera, plain studio background, even neutral lighting",
+      "positive_prompt": "masterpiece, best quality, amazing quality, very aesthetic, yoonalter, 1girl, solo, adult woman, shoulder-length chestnut hair, green eyes, fully clothed in an opaque matte cotton long-sleeved shirt and straight-leg denim trousers, standing with arms relaxed, full-body eye-level camera, plain studio background, even neutral lighting",
+      "content_token_counts": {
+        "clip_l": 72,
+        "clip_g": 72
+      },
+      "late_markers": []
+    },
+    "material_shiny_latex": {
+      "group": "content_leakage",
+      "prompt_text": "1girl, solo, adult woman, shoulder-length chestnut hair, green eyes, fully clothed in an opaque shiny black latex long-sleeved suit and straight-leg trousers, standing with arms relaxed, full-body eye-level camera, plain studio background, even neutral lighting",
+      "positive_prompt": "masterpiece, best quality, amazing quality, very aesthetic, yoonalter, 1girl, solo, adult woman, shoulder-length chestnut hair, green eyes, fully clothed in an opaque shiny black latex long-sleeved suit and straight-leg trousers, standing with arms relaxed, full-body eye-level camera, plain studio background, even neutral lighting",
+      "content_token_counts": {
+        "clip_l": 72,
+        "clip_g": 72
+      },
+      "late_markers": []
+    },
+    "lighting_flat_day": {
+      "group": "content_leakage",
+      "prompt_text": "1girl, solo, adult woman, long brown hair, blue eyes, fully clothed in a matte beige linen dress, walking on a garden path, eye-level full-body camera, bright outdoor midday, flat diffuse daylight, no dramatic shadows",
+      "positive_prompt": "masterpiece, best quality, amazing quality, very aesthetic, yoonalter, 1girl, solo, adult woman, long brown hair, blue eyes, fully clothed in a matte beige linen dress, walking on a garden path, eye-level full-body camera, bright outdoor midday, flat diffuse daylight, no dramatic shadows",
+      "content_token_counts": {
+        "clip_l": 65,
+        "clip_g": 65
+      },
+      "late_markers": []
+    },
+    "lighting_dramatic_night": {
+      "group": "content_leakage",
+      "prompt_text": "1girl, solo, adult woman, long brown hair, blue eyes, fully clothed in a matte beige linen dress, standing in a quiet interior, eye-level full-body camera, dark room at night, dramatic side light, strong rim light and deep shadows",
+      "positive_prompt": "masterpiece, best quality, amazing quality, very aesthetic, yoonalter, 1girl, solo, adult woman, long brown hair, blue eyes, fully clothed in a matte beige linen dress, standing in a quiet interior, eye-level full-body camera, dark room at night, dramatic side light, strong rim light and deep shadows",
+      "content_token_counts": {
+        "clip_l": 68,
+        "clip_g": 68
+      },
+      "late_markers": []
+    },
+    "solo_character": {
+      "group": "content_leakage",
+      "prompt_text": "1girl, solo, adult woman, short auburn hair, gray eyes, fully clothed in a green jacket and black trousers, standing face to face with the viewer, full-body camera, simple train station platform, neutral daylight",
+      "positive_prompt": "masterpiece, best quality, amazing quality, very aesthetic, yoonalter, 1girl, solo, adult woman, short auburn hair, gray eyes, fully clothed in a green jacket and black trousers, standing face to face with the viewer, full-body camera, simple train station platform, neutral daylight",
+      "content_token_counts": {
+        "clip_l": 60,
+        "clip_g": 60
+      },
+      "late_markers": []
+    },
+    "two_characters": {
+      "group": "content_leakage",
+      "prompt_text": "2girls, two adult women, one with short auburn hair and one with long blonde hair, both fully clothed, one wearing a green jacket and black trousers and the other a red jacket and gray trousers, standing face to face, full-body camera, simple train station platform, neutral daylight",
+      "positive_prompt": "masterpiece, best quality, amazing quality, very aesthetic, yoonalter, 2girls, two adult women, one with short auburn hair and one with long blonde hair, both fully clothed, one wearing a green jacket and black trousers and the other a red jacket and gray trousers, standing face to face, full-body camera, simple train station platform, neutral daylight",
+      "content_token_counts": {
+        "clip_l": 73,
+        "clip_g": 73
+      },
+      "late_markers": []
+    },
+    "bodytype_plus_size": {
+      "group": "content_leakage",
+      "prompt_text": "1girl, solo, plus-size adult woman, short pink hair, brown eyes, fully clothed in a loose white cotton shirt and dark trousers, seated upright on a wooden bench, side three-quarter camera view, plain indoor studio, even soft light",
+      "positive_prompt": "masterpiece, best quality, amazing quality, very aesthetic, yoonalter, 1girl, solo, plus-size adult woman, short pink hair, brown eyes, fully clothed in a loose white cotton shirt and dark trousers, seated upright on a wooden bench, side three-quarter camera view, plain indoor studio, even soft light",
+      "content_token_counts": {
+        "clip_l": 66,
+        "clip_g": 66
+      },
+      "late_markers": []
+    },
+    "vague_outdoor": {
+      "group": "vague",
+      "prompt_text": "1girl, solo, walking outdoors",
+      "positive_prompt": "masterpiece, best quality, amazing quality, very aesthetic, yoonalter, 1girl, solo, walking outdoors",
+      "content_token_counts": {
+        "clip_l": 21,
+        "clip_g": 21
+      },
+      "late_markers": []
+    },
+    "late_after_75": {
+      "group": "extended_inference",
+      "prompt_text": "1girl, solo, adult woman, portrait, waist-up, centered composition, looking at viewer, calm expression, oval face, small nose, closed mouth, long dark hair, loose strands, brown eyes, clear eyelashes, pale skin, subtle blush, simple hair clip, head turned slightly, shoulders angled, hands visible, natural anatomy, relaxed posture, soft focus, fine lineart, delicate shading, detailed face, muted color palette, balanced composition, garden background, leaves, flowers, stone path, afternoon light, depth of field, high detail, clean outline, smooth color transitions, no motion blur, accurate proportions, wearing a bright yellow raincoat and purple scarf, holding a red umbrella beside a white bicycle",
+      "positive_prompt": "masterpiece, best quality, amazing quality, very aesthetic, yoonalter, 1girl, solo, adult woman, portrait, waist-up, centered composition, looking at viewer, calm expression, oval face, small nose, closed mouth, long dark hair, loose strands, brown eyes, clear eyelashes, pale skin, subtle blush, simple hair clip, head turned slightly, shoulders angled, hands visible, natural anatomy, relaxed posture, soft focus, fine lineart, delicate shading, detailed face, muted color palette, balanced composition, garden background, leaves, flowers, stone path, afternoon light, depth of field, high detail, clean outline, smooth color transitions, no motion blur, accurate proportions, wearing a bright yellow raincoat and purple scarf, holding a red umbrella beside a white bicycle",
+      "content_token_counts": {
+        "clip_l": 159,
+        "clip_g": 159
+      },
+      "late_markers": [
+        {
+          "text": "wearing a bright yellow raincoat and purple scarf",
+          "start_positions": {
+            "clip_l": 142,
+            "clip_g": 142
+          },
+          "end_positions": {
+            "clip_l": 150,
+            "clip_g": 150
+          },
+          "after_target_position": true,
+          "fully_within_inference_capacity": true
+        }
+      ]
+    },
+    "late_after_150": {
+      "group": "extended_inference",
+      "prompt_text": "1girl, solo, adult woman, full body, centered, looking toward viewer, calm expression, oval face, small nose, closed mouth, long dark brown hair, loose strands, amber eyes, eyelashes, pale skin, blush, flower hair ornament, head turned slightly, shoulders angled, hands visible, natural anatomy, relaxed upright posture, slender build, detailed face, soft eye highlights, gentle smile, clean fine lineart, delicate shading, smooth gradients, muted colors, balanced composition, spring garden, stone path, green leaves, cherry trees, wooden fence, blue sky, soft clouds, afternoon daylight, diffuse light, soft shadows, depth of field, full scene, waist and legs visible, skirt pleats, fabric folds, natural cloth texture, hair moving in breeze, petals in air, clear silhouette, medium camera distance, eye-level camera, three-quarter view, quiet atmosphere, accurate proportions, detailed background, wearing a deep green velvet coat with gold buttons and carrying a folded paper fan in her left hand",
+      "positive_prompt": "masterpiece, best quality, amazing quality, very aesthetic, yoonalter, 1girl, solo, adult woman, full body, centered, looking toward viewer, calm expression, oval face, small nose, closed mouth, long dark brown hair, loose strands, amber eyes, eyelashes, pale skin, blush, flower hair ornament, head turned slightly, shoulders angled, hands visible, natural anatomy, relaxed upright posture, slender build, detailed face, soft eye highlights, gentle smile, clean fine lineart, delicate shading, smooth gradients, muted colors, balanced composition, spring garden, stone path, green leaves, cherry trees, wooden fence, blue sky, soft clouds, afternoon daylight, diffuse light, soft shadows, depth of field, full scene, waist and legs visible, skirt pleats, fabric folds, natural cloth texture, hair moving in breeze, petals in air, clear silhouette, medium camera distance, eye-level camera, three-quarter view, quiet atmosphere, accurate proportions, detailed background, wearing a deep green velvet coat with gold buttons and carrying a folded paper fan in her left hand",
+      "content_token_counts": {
+        "clip_l": 223,
+        "clip_g": 223
+      },
+      "late_markers": [
+        {
+          "text": "wearing a deep green velvet coat with gold buttons and carrying a folded paper fan in her left hand",
+          "start_positions": {
+            "clip_l": 205,
+            "clip_g": 205
+          },
+          "end_positions": {
+            "clip_l": 223,
+            "clip_g": 223
+          },
+          "after_target_position": true,
+          "fully_within_inference_capacity": true
+        }
+      ]
+    }
+  }
+}

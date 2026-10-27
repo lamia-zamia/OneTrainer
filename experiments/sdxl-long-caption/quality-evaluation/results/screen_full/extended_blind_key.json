@@ -1,0 +1,90 @@
+[
+  {
+    "comparison_id": "long_001",
+    "prompt_id": "late_after_75",
+    "seed": 42,
+    "A_image_id": "img_74bed14bec",
+    "A_condition": "base",
+    "B_image_id": "img_48a3e397da",
+    "B_condition": "after_75",
+    "C_image_id": "img_c46ed8761b",
+    "C_condition": "after_225"
+  },
+  {
+    "comparison_id": "long_002",
+    "prompt_id": "late_after_75",
+    "seed": 123,
+    "A_image_id": "img_8a175b5c87",
+    "A_condition": "base",
+    "B_image_id": "img_3dd1f13b9d",
+    "B_condition": "after_75",
+    "C_image_id": "img_9f1d038b63",
+    "C_condition": "after_225"
+  },
+  {
+    "comparison_id": "long_003",
+    "prompt_id": "late_after_75",
+    "seed": 456,
+    "A_image_id": "img_b0da760f39",
+    "A_condition": "base",
+    "B_image_id": "img_d899cb7849",
+    "B_condition": "after_75",
+    "C_image_id": "img_1bb0bf84fc",
+    "C_condition": "after_225"
+  },
+  {
+    "comparison_id": "long_004",
+    "prompt_id": "late_after_75",
+    "seed": 789,
+    "A_image_id": "img_fcb9b16042",
+    "A_condition": "base",
+    "B_image_id": "img_f7fff26f1b",
+    "B_condition": "after_75",
+    "C_image_id": "img_c7999093b3",
+    "C_condition": "after_225"
+  },
+  {
+    "comparison_id": "long_005",
+    "prompt_id": "late_after_150",
+    "seed": 42,
+    "A_image_id": "img_0a9cef61e4",
+    "A_condition": "base",
+    "B_image_id": "img_98b7689a29",
+    "B_condition": "after_75",
+    "C_image_id": "img_fdb00ad663",
+    "C_condition": "after_225"
+  },
+  {
+    "comparison_id": "long_006",
+    "prompt_id": "late_after_150",
+    "seed": 123,
+    "A_image_id": "img_0b7e37d821",
+    "A_condition": "base",
+    "B_image_id": "img_a51e2eb744",
+    "B_condition": "after_75",
+    "C_image_id": "img_be64fefc32",
+    "C_condition": "after_225"
+  },
+  {
+    "comparison_id": "long_007",
+    "prompt_id": "late_after_150",
+    "seed": 456,
+    "A_image_id": "img_9083516974",
+    "A_condition": "base",
+    "B_image_id": "img_4775cf50d5",
+    "B_condition": "after_75",
+    "C_image_id": "img_11a11bc4a6",
+    "C_condition": "after_225"
+  },
+  {
+    "comparison_id": "long_008",
+    "prompt_id": "late_after_150",
+    "seed": 789,
+    "A_image_id": "img_64ba304d64",
+    "A_condition": "base",
+    "B_image_id": "img_be90721fac",
+    "B_condition": "after_75",
+    "C_image_id": "img_b51794f5dc",
+    "C_condition": "after_225"
+  }
+]

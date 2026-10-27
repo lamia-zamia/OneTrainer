@@ -1,0 +1,203 @@
+{
+  "scalar_source": "TensorBoard event files from the two long_clip training runs",
+  "session_ranges": [
+    {
+      "session": 1,
+      "event_steps": "0-1568",
+      "meaning": "initial three-epoch training session"
+    },
+    {
+      "session": 2,
+      "event_steps": "1199-4183",
+      "meaning": "resumed eight-epoch session"
+    }
+  ],
+  "checkpoint_step_matches": [
+    {
+      "checkpoint_step": 399,
+      "after_75": {
+        "loss/train_step": 0.21114371716976166,
+        "smooth_loss/train_step": 0.10840251296758652
+      },
+      "after_225": {
+        "loss/train_step": 0.21045660972595215,
+        "smooth_loss/train_step": 0.10837345570325851
+      },
+      "raw_loss_delta_225_minus_75": -0.0006871074438095093,
+      "smooth_loss_delta_225_minus_75": -2.905726432800293e-05
+    },
+    {
+      "checkpoint_step": 799,
+      "after_75": {
+        "loss/train_step": 0.02003513090312481,
+        "smooth_loss/train_step": 0.10114846378564835
+      },
+      "after_225": {
+        "loss/train_step": 0.020008249208331108,
+        "smooth_loss/train_step": 0.10121366381645203
+      },
+      "raw_loss_delta_225_minus_75": -2.6881694793701172e-05,
+      "smooth_loss_delta_225_minus_75": 6.520003080368042e-05
+    },
+    {
+      "checkpoint_step": 1199,
+      "after_75": {
+        "loss/train_step": 0.07558213919401169,
+        "smooth_loss/train_step": 0.09333071112632751
+      },
+      "after_225": {
+        "loss/train_step": 0.07553958892822266,
+        "smooth_loss/train_step": 0.09339328855276108
+      },
+      "raw_loss_delta_225_minus_75": -4.255026578903198e-05,
+      "smooth_loss_delta_225_minus_75": 6.257742643356323e-05
+    },
+    {
+      "checkpoint_step": 1599,
+      "after_75": {
+        "loss/train_step": 0.08666518330574036,
+        "smooth_loss/train_step": 0.09873034805059433
+      },
+      "after_225": {
+        "loss/train_step": 0.08447051048278809,
+        "smooth_loss/train_step": 0.09869463741779327
+      },
+      "raw_loss_delta_225_minus_75": -0.0021946728229522705,
+      "smooth_loss_delta_225_minus_75": -3.571063280105591e-05
+    },
+    {
+      "checkpoint_step": 1999,
+      "after_75": {
+        "loss/train_step": 0.20086675882339478,
+        "smooth_loss/train_step": 0.09869972616434097
+      },
+      "after_225": {
+        "loss/train_step": 0.20121844112873077,
+        "smooth_loss/train_step": 0.09877292066812515
+      },
+      "raw_loss_delta_225_minus_75": 0.00035168230533599854,
+      "smooth_loss_delta_225_minus_75": 7.319450378417969e-05
+    },
+    {
+      "checkpoint_step": 2399,
+      "after_75": {
+        "loss/train_step": 0.0021802012342959642,
+        "smooth_loss/train_step": 0.09610146284103394
+      },
+      "after_225": {
+        "loss/train_step": 0.0023310917895287275,
+        "smooth_loss/train_step": 0.09616927057504654
+      },
+      "raw_loss_delta_225_minus_75": 0.0001508905552327633,
+      "smooth_loss_delta_225_minus_75": 6.780773401260376e-05
+    },
+    {
+      "checkpoint_step": 2799,
+      "after_75": {
+        "loss/train_step": 0.07793673127889633,
+        "smooth_loss/train_step": 0.0900738313794136
+      },
+      "after_225": {
+        "loss/train_step": 0.07836997509002686,
+        "smooth_loss/train_step": 0.09011922031641006
+      },
+      "raw_loss_delta_225_minus_75": 0.0004332438111305237,
+      "smooth_loss_delta_225_minus_75": 4.538893699645996e-05
+    },
+    {
+      "checkpoint_step": 3199,
+      "after_75": {
+        "loss/train_step": 0.05854073166847229,
+        "smooth_loss/train_step": 0.09976666420698166
+      },
+      "after_225": {
+        "loss/train_step": 0.05880463868379593,
+        "smooth_loss/train_step": 0.09978041797876358
+      },
+      "raw_loss_delta_225_minus_75": 0.0002639070153236389,
+      "smooth_loss_delta_225_minus_75": 1.3753771781921387e-05
+    },
+    {
+      "checkpoint_step": 3599,
+      "after_75": {
+        "loss/train_step": 0.18154531717300415,
+        "smooth_loss/train_step": 0.09603404253721237
+      },
+      "after_225": {
+        "loss/train_step": 0.18202191591262817,
+        "smooth_loss/train_step": 0.09610211104154587
+      },
+      "raw_loss_delta_225_minus_75": 0.00047659873962402344,
+      "smooth_loss_delta_225_minus_75": 6.80685043334961e-05
+    },
+    {
+      "checkpoint_step": 3999,
+      "after_75": {
+        "loss/train_step": 0.2654356360435486,
+        "smooth_loss/train_step": 0.11826767027378082
+      },
+      "after_225": {
+        "loss/train_step": 0.26505038142204285,
+        "smooth_loss/train_step": 0.11836570501327515
+      },
+      "raw_loss_delta_225_minus_75": -0.0003852546215057373,
+      "smooth_loss_delta_225_minus_75": 9.803473949432373e-05
+    }
+  ],
+  "session_comparisons": [
+    {
+      "session_index": 1,
+      "tag": "loss/train_step",
+      "after_75_event_file": "events.out.tfevents.1793028597.DESKTOP-4P8SDQL.48856.0",
+      "after_225_event_file": "events.out.tfevents.1793032926.DESKTOP-4P8SDQL.29544.0",
+      "paired_event_steps": 1569,
+      "event_step_min": 0,
+      "event_step_max": 1568,
+      "after_75_mean": 0.09534440167214712,
+      "after_225_mean": 0.09533724903679287,
+      "mean_absolute_loss_difference": 0.000509378204458744,
+      "pearson_correlation": 0.9999529606980334
+    },
+    {
+      "session_index": 1,
+      "tag": "smooth_loss/train_step",
+      "after_75_event_file": "events.out.tfevents.1793028597.DESKTOP-4P8SDQL.48856.0",
+      "after_225_event_file": "events.out.tfevents.1793032926.DESKTOP-4P8SDQL.29544.0",
+      "paired_event_steps": 1569,
+      "event_step_min": 0,
+      "event_step_max": 1568,
+      "after_75_mean": 0.09532753169213684,
+      "after_225_mean": 0.09532192183232292,
+      "mean_absolute_loss_difference": 4.06537819926795e-05,
+      "pearson_correlation": 0.9999822330070275
+    },
+    {
+      "session_index": 2,
+      "tag": "loss/train_step",
+      "after_75_event_file": "events.out.tfevents.1793041860.DESKTOP-4P8SDQL.34756.0",
+      "after_225_event_file": "events.out.tfevents.1793049828.DESKTOP-4P8SDQL.45452.0",
+      "paired_event_steps": 2985,
+      "event_step_min": 1199,
+      "event_step_max": 4183,
+      "after_75_mean": 0.09729555506969785,
+      "after_225_mean": 0.09732612595632922,
+      "mean_absolute_loss_difference": 0.0005770995101846218,
+      "pearson_correlation": 0.999945779571909
+    },
+    {
+      "session_index": 2,
+      "tag": "smooth_loss/train_step",
+      "after_75_event_file": "events.out.tfevents.1793041860.DESKTOP-4P8SDQL.34756.0",
+      "after_225_event_file": "events.out.tfevents.1793049828.DESKTOP-4P8SDQL.45452.0",
+      "paired_event_steps": 2985,
+      "event_step_min": 1199,
+      "event_step_max": 4183,
+      "after_75_mean": 0.09723613817288448,
+      "after_225_mean": 0.09726720480513533,
+      "mean_absolute_loss_difference": 5.729923545815038e-05,
+      "pearson_correlation": 0.9999685374025422
+    }
+  ],
+  "step_axis_note": "The event series continues beyond the periodic backup named global_step=3999. Training logs continue through event step 4183 and save the final KOHYA model after the last epoch; the final model file has no embedded progress metadata.",
+  "smooth_loss_note": "The exponential moving average restarts at resumed event step 1199; use the initial session value for checkpoint step 1199."
+}

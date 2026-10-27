@@ -1,0 +1,128 @@
+{
+  "stage": "screen",
+  "planned_paired_images": 360,
+  "images_generated": 368,
+  "base_controls": 8,
+  "seeds": [
+    42,
+    123,
+    456,
+    789
+  ],
+  "strengths": [
+    1.0,
+    1.5,
+    2.0
+  ],
+  "checkpoint_steps": [
+    3999
+  ],
+  "prompts": [
+    "P6",
+    "P7",
+    "adult_man",
+    "adult_woman",
+    "bodytype_plus_size",
+    "late_after_150",
+    "late_after_75",
+    "lighting_dramatic_night",
+    "lighting_flat_day",
+    "material_matte_cotton",
+    "material_shiny_latex",
+    "solo_character",
+    "specified_cafe",
+    "two_characters",
+    "vague_outdoor"
+  ],
+  "prompt_token_counts": {
+    "adult_woman": [
+      60,
+      60
+    ],
+    "P6": [
+      50,
+      50
+    ],
+    "bodytype_plus_size": [
+      66,
+      66
+    ],
+    "adult_man": [
+      68,
+      68
+    ],
+    "material_matte_cotton": [
+      72,
+      72
+    ],
+    "P7": [
+      22,
+      22
+    ],
+    "vague_outdoor": [
+      21,
+      21
+    ],
+    "material_shiny_latex": [
+      72,
+      72
+    ],
+    "lighting_dramatic_night": [
+      68,
+      68
+    ],
+    "late_after_75": [
+      159,
+      159
+    ],
+    "late_after_150": [
+      223,
+      223
+    ],
+    "two_characters": [
+      73,
+      73
+    ],
+    "lighting_flat_day": [
+      65,
+      65
+    ],
+    "specified_cafe": [
+      73,
+      73
+    ],
+    "solo_character": [
+      60,
+      60
+    ]
+  },
+  "late_detail_token_positions": {
+    "late_after_75": [
+      {
+        "marker": "wearing a bright yellow raincoat and purple scarf",
+        "token_start_positions": [
+          142,
+          142
+        ],
+        "token_end_positions": [
+          150,
+          150
+        ]
+      }
+    ],
+    "late_after_150": [
+      {
+        "marker": "wearing a deep green velvet coat with gold buttons and carrying a folded paper fan in her left hand",
+        "token_start_positions": [
+          205,
+          205
+        ],
+        "token_end_positions": [
+          223,
+          223
+        ]
+      }
+    ]
+  },
+  "blinded_pair_count": 180
+}

@@ -1,0 +1,366 @@
+{
+  "runs": {
+    "before_75": {
+      "config_path": "D:\\ComfyUI\\ComfyUI\\ComfyUI\\models\\loras\\alt_test_before_75\\backup\\2026-10-26_12-39-36-backup-499-0-499\\onetrainer_config\\args.json",
+      "concept_file": "D:\\ComfyUI\\ComfyUI\\ComfyUI\\models\\loras\\alt_test_before_75\\backup\\2026-10-26_12-39-36-backup-499-0-499\\onetrainer_config\\concepts.json",
+      "concept_dataset_path": "D:/lora-datasets/Projects/alterkyon_new/concepts/test2",
+      "effective_token_limit": 75,
+      "recorded_sdxl_max_caption_tokens": null,
+      "build": "original",
+      "base_model": "D:\\ComfyUI\\ComfyUI\\ComfyUI\\models\\checkpoints\\illustriousXL_v01.safetensors",
+      "training_method": "LORA",
+      "rank": 32,
+      "alpha": 32.0,
+      "optimizer": "ADAFACTOR",
+      "learning_rate_unet": 0.0005,
+      "learning_rate_text_encoder_1": 5e-05,
+      "scheduler": "CONSTANT",
+      "batch_size": 1,
+      "gradient_accumulation_steps": 1,
+      "resolution": "1024",
+      "train_dtype": "BFLOAT_16",
+      "epochs": 1,
+      "save_every": 100,
+      "caption_dropout": 0.0,
+      "tag_shuffle": false,
+      "tag_dropout": 0.0,
+      "image_augmentations": {
+        "__version": 0,
+        "enable_crop_jitter": false,
+        "enable_random_flip": false,
+        "enable_fixed_flip": false,
+        "enable_random_rotate": false,
+        "enable_fixed_rotate": false,
+        "random_rotate_max_angle": 0.0,
+        "enable_random_brightness": false,
+        "enable_fixed_brightness": false,
+        "random_brightness_max_strength": 0.0,
+        "enable_random_contrast": false,
+        "enable_fixed_contrast": false,
+        "random_contrast_max_strength": 0.0,
+        "enable_random_saturation": false,
+        "enable_fixed_saturation": false,
+        "random_saturation_max_strength": 0.0,
+        "enable_random_hue": false,
+        "enable_fixed_hue": false,
+        "random_hue_max_strength": 0.0,
+        "enable_resolution_override": false,
+        "resolution_override": "512",
+        "enable_random_circular_mask_shrink": false,
+        "enable_random_mask_rotate_crop": false
+      },
+      "concept_seed": -196365381,
+      "global_seed_fields": [],
+      "prior_preservation_weight": 0.0,
+      "masked_training": true,
+      "available_checkpoints": [
+        {
+          "step": 99,
+          "path": "D:\\ComfyUI\\ComfyUI\\ComfyUI\\models\\loras\\alt_test_before_75\\save\\alt_test_before_752026-10-26_12-21-16-save-99-0-99.safetensors"
+        },
+        {
+          "step": 199,
+          "path": "D:\\ComfyUI\\ComfyUI\\ComfyUI\\models\\loras\\alt_test_before_75\\save\\alt_test_before_752026-10-26_12-25-56-save-199-0-199.safetensors"
+        },
+        {
+          "step": 299,
+          "path": "D:\\ComfyUI\\ComfyUI\\ComfyUI\\models\\loras\\alt_test_before_75\\save\\alt_test_before_752026-10-26_12-30-38-save-299-0-299.safetensors"
+        },
+        {
+          "step": 399,
+          "path": "D:\\ComfyUI\\ComfyUI\\ComfyUI\\models\\loras\\alt_test_before_75\\save\\alt_test_before_752026-10-26_12-35-05-save-399-0-399.safetensors"
+        },
+        {
+          "step": 499,
+          "path": "D:\\ComfyUI\\ComfyUI\\ComfyUI\\models\\loras\\alt_test_before_75\\save\\alt_test_before_752026-10-26_12-39-38-save-499-0-499.safetensors"
+        }
+      ]
+    },
+    "before_225": {
+      "config_path": "D:\\ComfyUI\\ComfyUI\\ComfyUI\\models\\loras\\alt_test_before_225\\backup\\2026-10-26_13-11-21-backup-499-0-499\\onetrainer_config\\args.json",
+      "concept_file": "D:\\ComfyUI\\ComfyUI\\ComfyUI\\models\\loras\\alt_test_before_225\\backup\\2026-10-26_13-11-21-backup-499-0-499\\onetrainer_config\\concepts.json",
+      "concept_dataset_path": "D:/lora-datasets/Projects/alterkyon_new - Copy/concepts/test2",
+      "effective_token_limit": 75,
+      "recorded_sdxl_max_caption_tokens": null,
+      "build": "original",
+      "base_model": "D:\\ComfyUI\\ComfyUI\\ComfyUI\\models\\checkpoints\\illustriousXL_v01.safetensors",
+      "training_method": "LORA",
+      "rank": 32,
+      "alpha": 32.0,
+      "optimizer": "ADAFACTOR",
+      "learning_rate_unet": 0.0005,
+      "learning_rate_text_encoder_1": 5e-05,
+      "scheduler": "CONSTANT",
+      "batch_size": 1,
+      "gradient_accumulation_steps": 1,
+      "resolution": "1024",
+      "train_dtype": "BFLOAT_16",
+      "epochs": 1,
+      "save_every": 100,
+      "caption_dropout": 0.0,
+      "tag_shuffle": false,
+      "tag_dropout": 0.0,
+      "image_augmentations": {
+        "__version": 0,
+        "enable_crop_jitter": false,
+        "enable_random_flip": false,
+        "enable_fixed_flip": false,
+        "enable_random_rotate": false,
+        "enable_fixed_rotate": false,
+        "random_rotate_max_angle": 0.0,
+        "enable_random_brightness": false,
+        "enable_fixed_brightness": false,
+        "random_brightness_max_strength": 0.0,
+        "enable_random_contrast": false,
+        "enable_fixed_contrast": false,
+        "random_contrast_max_strength": 0.0,
+        "enable_random_saturation": false,
+        "enable_fixed_saturation": false,
+        "random_saturation_max_strength": 0.0,
+        "enable_random_hue": false,
+        "enable_fixed_hue": false,
+        "random_hue_max_strength": 0.0,
+        "enable_resolution_override": false,
+        "resolution_override": "512",
+        "enable_random_circular_mask_shrink": false,
+        "enable_random_mask_rotate_crop": false
+      },
+      "concept_seed": -196365381,
+      "global_seed_fields": [],
+      "prior_preservation_weight": 0.0,
+      "masked_training": true,
+      "available_checkpoints": [
+        {
+          "step": 99,
+          "path": "D:\\ComfyUI\\ComfyUI\\ComfyUI\\models\\loras\\alt_test_before_225\\save\\alt_test_before_2252026-10-26_12-51-30-save-99-0-99.safetensors"
+        },
+        {
+          "step": 199,
+          "path": "D:\\ComfyUI\\ComfyUI\\ComfyUI\\models\\loras\\alt_test_before_225\\save\\alt_test_before_2252026-10-26_12-57-30-save-199-0-199.safetensors"
+        },
+        {
+          "step": 299,
+          "path": "D:\\ComfyUI\\ComfyUI\\ComfyUI\\models\\loras\\alt_test_before_225\\save\\alt_test_before_2252026-10-26_13-02-41-save-299-0-299.safetensors"
+        },
+        {
+          "step": 399,
+          "path": "D:\\ComfyUI\\ComfyUI\\ComfyUI\\models\\loras\\alt_test_before_225\\save\\alt_test_before_2252026-10-26_13-07-07-save-399-0-399.safetensors"
+        },
+        {
+          "step": 499,
+          "path": "D:\\ComfyUI\\ComfyUI\\ComfyUI\\models\\loras\\alt_test_before_225\\save\\alt_test_before_2252026-10-26_13-11-23-save-499-0-499.safetensors"
+        }
+      ]
+    },
+    "after_75": {
+      "config_path": "D:\\lora-datasets\\Projects\\alterkyon_new\\loras\\alt_test_after_75\\backup\\2026-10-26_21-15-03-backup-3999-7-338\\onetrainer_config\\args.json",
+      "concept_file": "D:\\lora-datasets\\Projects\\alterkyon_new\\loras\\alt_test_after_75\\backup\\2026-10-26_21-15-03-backup-3999-7-338\\onetrainer_config\\concepts.json",
+      "concept_dataset_path": "D:/lora-datasets/Projects/alterkyon_new/concepts/test2",
+      "effective_token_limit": 75,
+      "recorded_sdxl_max_caption_tokens": 75,
+      "build": "long_clip",
+      "base_model": "D:\\ComfyUI\\ComfyUI\\ComfyUI\\models\\checkpoints\\illustriousXL_v01.safetensors",
+      "training_method": "LORA",
+      "rank": 32,
+      "alpha": 32.0,
+      "optimizer": "ADAFACTOR",
+      "learning_rate_unet": 0.0005,
+      "learning_rate_text_encoder_1": 5e-05,
+      "scheduler": "CONSTANT",
+      "batch_size": 1,
+      "gradient_accumulation_steps": 1,
+      "resolution": "1024",
+      "train_dtype": "BFLOAT_16",
+      "epochs": 8,
+      "save_every": 400,
+      "caption_dropout": 0.0,
+      "tag_shuffle": false,
+      "tag_dropout": 0.0,
+      "image_augmentations": {
+        "__version": 0,
+        "enable_crop_jitter": false,
+        "enable_random_flip": false,
+        "enable_fixed_flip": false,
+        "enable_random_rotate": false,
+        "enable_fixed_rotate": false,
+        "random_rotate_max_angle": 0.0,
+        "enable_random_brightness": false,
+        "enable_fixed_brightness": false,
+        "random_brightness_max_strength": 0.0,
+        "enable_random_contrast": false,
+        "enable_fixed_contrast": false,
+        "random_contrast_max_strength": 0.0,
+        "enable_random_saturation": false,
+        "enable_fixed_saturation": false,
+        "random_saturation_max_strength": 0.0,
+        "enable_random_hue": false,
+        "enable_fixed_hue": false,
+        "random_hue_max_strength": 0.0,
+        "enable_resolution_override": false,
+        "resolution_override": "512",
+        "enable_random_circular_mask_shrink": false,
+        "enable_random_mask_rotate_crop": false
+      },
+      "concept_seed": -196365381,
+      "global_seed_fields": [],
+      "prior_preservation_weight": 0.0,
+      "masked_training": true,
+      "available_checkpoints": [
+        {
+          "step": 399,
+          "path": "D:\\ComfyUI\\ComfyUI\\ComfyUI\\models\\loras\\lora_manager\\alt_test_after_75\\alt_test_after_75-00399.safetensors"
+        },
+        {
+          "step": 799,
+          "path": "D:\\ComfyUI\\ComfyUI\\ComfyUI\\models\\loras\\lora_manager\\alt_test_after_75\\alt_test_after_75-00799.safetensors"
+        },
+        {
+          "step": 1199,
+          "path": "D:\\ComfyUI\\ComfyUI\\ComfyUI\\models\\loras\\lora_manager\\alt_test_after_75\\alt_test_after_75-01199.safetensors"
+        },
+        {
+          "step": 1599,
+          "path": "D:\\ComfyUI\\ComfyUI\\ComfyUI\\models\\loras\\lora_manager\\alt_test_after_75\\alt_test_after_75-01599.safetensors"
+        },
+        {
+          "step": 1999,
+          "path": "D:\\ComfyUI\\ComfyUI\\ComfyUI\\models\\loras\\lora_manager\\alt_test_after_75\\alt_test_after_75-01999.safetensors"
+        },
+        {
+          "step": 2399,
+          "path": "D:\\ComfyUI\\ComfyUI\\ComfyUI\\models\\loras\\lora_manager\\alt_test_after_75\\alt_test_after_75-02399.safetensors"
+        },
+        {
+          "step": 2799,
+          "path": "D:\\ComfyUI\\ComfyUI\\ComfyUI\\models\\loras\\lora_manager\\alt_test_after_75\\alt_test_after_75-02799.safetensors"
+        },
+        {
+          "step": 3199,
+          "path": "D:\\ComfyUI\\ComfyUI\\ComfyUI\\models\\loras\\lora_manager\\alt_test_after_75\\alt_test_after_75-03199.safetensors"
+        },
+        {
+          "step": 3599,
+          "path": "D:\\ComfyUI\\ComfyUI\\ComfyUI\\models\\loras\\lora_manager\\alt_test_after_75\\alt_test_after_75-03599.safetensors"
+        },
+        {
+          "step": 3999,
+          "path": "D:\\ComfyUI\\ComfyUI\\ComfyUI\\models\\loras\\lora_manager\\alt_test_after_75\\alt_test_after_75-03999.safetensors"
+        }
+      ]
+    },
+    "after_225": {
+      "config_path": "D:\\lora-datasets\\Projects\\alterkyon_new\\loras\\alt_test_after_225\\backup\\2026-10-26_23-28-00-backup-3999-7-338\\onetrainer_config\\args.json",
+      "concept_file": "D:\\lora-datasets\\Projects\\alterkyon_new\\loras\\alt_test_after_225\\backup\\2026-10-26_23-28-00-backup-3999-7-338\\onetrainer_config\\concepts.json",
+      "concept_dataset_path": "D:/lora-datasets/Projects/alterkyon_new - Copy/concepts/test2",
+      "effective_token_limit": 225,
+      "recorded_sdxl_max_caption_tokens": 225,
+      "build": "long_clip",
+      "base_model": "D:\\ComfyUI\\ComfyUI\\ComfyUI\\models\\checkpoints\\illustriousXL_v01.safetensors",
+      "training_method": "LORA",
+      "rank": 32,
+      "alpha": 32.0,
+      "optimizer": "ADAFACTOR",
+      "learning_rate_unet": 0.0005,
+      "learning_rate_text_encoder_1": 5e-05,
+      "scheduler": "CONSTANT",
+      "batch_size": 1,
+      "gradient_accumulation_steps": 1,
+      "resolution": "1024",
+      "train_dtype": "BFLOAT_16",
+      "epochs": 8,
+      "save_every": 400,
+      "caption_dropout": 0.0,
+      "tag_shuffle": false,
+      "tag_dropout": 0.0,
+      "image_augmentations": {
+        "__version": 0,
+        "enable_crop_jitter": false,
+        "enable_random_flip": false,
+        "enable_fixed_flip": false,
+        "enable_random_rotate": false,
+        "enable_fixed_rotate": false,
+        "random_rotate_max_angle": 0.0,
+        "enable_random_brightness": false,
+        "enable_fixed_brightness": false,
+        "random_brightness_max_strength": 0.0,
+        "enable_random_contrast": false,
+        "enable_fixed_contrast": false,
+        "random_contrast_max_strength": 0.0,
+        "enable_random_saturation": false,
+        "enable_fixed_saturation": false,
+        "random_saturation_max_strength": 0.0,
+        "enable_random_hue": false,
+        "enable_fixed_hue": false,
+        "random_hue_max_strength": 0.0,
+        "enable_resolution_override": false,
+        "resolution_override": "512",
+        "enable_random_circular_mask_shrink": false,
+        "enable_random_mask_rotate_crop": false
+      },
+      "concept_seed": -196365381,
+      "global_seed_fields": [],
+      "prior_preservation_weight": 0.0,
+      "masked_training": true,
+      "available_checkpoints": [
+        {
+          "step": 399,
+          "path": "D:\\ComfyUI\\ComfyUI\\ComfyUI\\models\\loras\\lora_manager\\alt_test_after_225\\alt_test_after_225-00399.safetensors"
+        },
+        {
+          "step": 799,
+          "path": "D:\\ComfyUI\\ComfyUI\\ComfyUI\\models\\loras\\lora_manager\\alt_test_after_225\\alt_test_after_225-00799.safetensors"
+        },
+        {
+          "step": 1199,
+          "path": "D:\\ComfyUI\\ComfyUI\\ComfyUI\\models\\loras\\lora_manager\\alt_test_after_225\\alt_test_after_225-01199.safetensors"
+        },
+        {
+          "step": 1599,
+          "path": "D:\\ComfyUI\\ComfyUI\\ComfyUI\\models\\loras\\lora_manager\\alt_test_after_225\\alt_test_after_225-01599.safetensors"
+        },
+        {
+          "step": 1999,
+          "path": "D:\\ComfyUI\\ComfyUI\\ComfyUI\\models\\loras\\lora_manager\\alt_test_after_225\\alt_test_after_225-01999.safetensors"
+        },
+        {
+          "step": 2399,
+          "path": "D:\\ComfyUI\\ComfyUI\\ComfyUI\\models\\loras\\lora_manager\\alt_test_after_225\\alt_test_after_225-02399.safetensors"
+        },
+        {
+          "step": 2799,
+          "path": "D:\\ComfyUI\\ComfyUI\\ComfyUI\\models\\loras\\lora_manager\\alt_test_after_225\\alt_test_after_225-02799.safetensors"
+        },
+        {
+          "step": 3199,
+          "path": "D:\\ComfyUI\\ComfyUI\\ComfyUI\\models\\loras\\lora_manager\\alt_test_after_225\\alt_test_after_225-03199.safetensors"
+        },
+        {
+          "step": 3599,
+          "path": "D:\\ComfyUI\\ComfyUI\\ComfyUI\\models\\loras\\lora_manager\\alt_test_after_225\\alt_test_after_225-03599.safetensors"
+        },
+        {
+          "step": 3999,
+          "path": "D:\\ComfyUI\\ComfyUI\\ComfyUI\\models\\loras\\lora_manager\\alt_test_after_225\\alt_test_after_225-03999.safetensors"
+        }
+      ]
+    }
+  },
+  "after_run_setting_differences": {
+    "sdxl_max_caption_tokens": {
+      "after_75": 75,
+      "after_225": 225
+    }
+  },
+  "matched_capacity_control_present": false,
+  "required_missing_control": "long_clip + identical extended caption files + 75-token capacity, paired with the existing 225-token run",
+  "current_base_checkpoint_sha256_from_pretrained_report": "3e15ba00387db678ab4a099f75771c4f5ac67fda9e7100a01d263eaf30145aa9",
+  "historical_base_hash_recorded_in_training_runs": false,
+  "global_initialization_seed_or_initial_lora_hash_recorded": false,
+  "image_order_verified": false,
+  "build_revision_recorded_for_real_runs": false,
+  "causal_comparison": {
+    "before_75_vs_before_225": "Same old build/effective 75-token limit; original vs extended captions differ, so this is a caption-semantics comparison.",
+    "after_75_vs_after_225": "Same long_clip build and 4000-update target; original vs extended caption files and token capacity both differ. First-75 conditioning differs for short captions.",
+    "before_225_vs_after_225": "Same extended caption dataset, but old vs new build and 500 vs 4000 updates; not a matched capacity control."
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "python": "3.12.2 (tags/v3.12.2:6abddd9, Feb  6 2024, 21:26:36) [MSC v.1937 64 bit (AMD64)]",
+  "packages": {
+    "torch": "2.12.0+cu130",
+    "transformers": "5.5.4",
+    "diffusers": "0.39.0.dev0",
+    "safetensors": "0.8.0",
+    "tokenizers": "0.22.2"
+  },
+  "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+  "base_checkpoint": "D:\\ComfyUI\\ComfyUI\\ComfyUI\\models\\checkpoints\\illustriousXL_v01.safetensors",
+  "base_checkpoint_sha256": "3e15ba00387db678ab4a099f75771c4f5ac67fda9e7100a01d263eaf30145aa9"
+}
